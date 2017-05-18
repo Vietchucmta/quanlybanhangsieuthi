@@ -186,6 +186,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtGia = new System.Windows.Forms.Label();
             this.mnsHangHoa.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -1704,6 +1706,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtGia);
             this.panel1.Controls.Add(this.txtMaNCC);
             this.panel1.Controls.Add(this.label35);
             this.panel1.Controls.Add(this.cbLoai);
@@ -1723,14 +1727,14 @@
             // 
             // txtMaNCC
             // 
-            this.txtMaNCC.Location = new System.Drawing.Point(566, 98);
+            this.txtMaNCC.Location = new System.Drawing.Point(567, 45);
             this.txtMaNCC.Name = "txtMaNCC";
             this.txtMaNCC.Size = new System.Drawing.Size(146, 26);
             this.txtMaNCC.TabIndex = 12;
             // 
             // label35
             // 
-            this.label35.Location = new System.Drawing.Point(421, 101);
+            this.label35.Location = new System.Drawing.Point(422, 48);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(130, 26);
             this.label35.TabIndex = 11;
@@ -1747,7 +1751,7 @@
             "Đồ khô",
             "Đồ hộp",
             "Da vị"});
-            this.cbLoai.Location = new System.Drawing.Point(151, 101);
+            this.cbLoai.Location = new System.Drawing.Point(175, 68);
             this.cbLoai.Name = "cbLoai";
             this.cbLoai.Size = new System.Drawing.Size(155, 28);
             this.cbLoai.TabIndex = 10;
@@ -1755,7 +1759,7 @@
             // cbMaQuay
             // 
             this.cbMaQuay.FormattingEnabled = true;
-            this.cbMaQuay.Location = new System.Drawing.Point(566, 53);
+            this.cbMaQuay.Location = new System.Drawing.Point(567, 6);
             this.cbMaQuay.Name = "cbMaQuay";
             this.cbMaQuay.Size = new System.Drawing.Size(146, 28);
             this.cbMaQuay.TabIndex = 9;
@@ -1769,28 +1773,28 @@
             "Tá",
             "Thùng",
             "Cân"});
-            this.cbDonViTinh.Location = new System.Drawing.Point(566, 11);
+            this.cbDonViTinh.Location = new System.Drawing.Point(174, 110);
             this.cbDonViTinh.Name = "cbDonViTinh";
-            this.cbDonViTinh.Size = new System.Drawing.Size(146, 28);
+            this.cbDonViTinh.Size = new System.Drawing.Size(155, 28);
             this.cbDonViTinh.TabIndex = 8;
             // 
             // txtTenHang
             // 
-            this.txtTenHang.Location = new System.Drawing.Point(151, 55);
+            this.txtTenHang.Location = new System.Drawing.Point(174, 35);
             this.txtTenHang.Name = "txtTenHang";
             this.txtTenHang.Size = new System.Drawing.Size(155, 26);
             this.txtTenHang.TabIndex = 6;
             // 
             // txtMaHang
             // 
-            this.txtMaHang.Location = new System.Drawing.Point(151, 11);
+            this.txtMaHang.Location = new System.Drawing.Point(175, 3);
             this.txtMaHang.Name = "txtMaHang";
             this.txtMaHang.Size = new System.Drawing.Size(155, 26);
             this.txtMaHang.TabIndex = 5;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(422, 58);
+            this.label5.Location = new System.Drawing.Point(422, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 26);
             this.label5.TabIndex = 4;
@@ -1798,7 +1802,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(422, 11);
+            this.label4.Location = new System.Drawing.Point(39, 113);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 26);
             this.label4.TabIndex = 3;
@@ -1806,7 +1810,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(38, 101);
+            this.label3.Location = new System.Drawing.Point(39, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 26);
             this.label3.TabIndex = 2;
@@ -1814,7 +1818,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(38, 58);
+            this.label2.Location = new System.Drawing.Point(39, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 26);
             this.label2.TabIndex = 1;
@@ -1822,7 +1826,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(38, 11);
+            this.label1.Location = new System.Drawing.Point(39, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 26);
             this.label1.TabIndex = 0;
@@ -1846,6 +1850,21 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(567, 82);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(146, 26);
+            this.textBox1.TabIndex = 14;
+            // 
+            // txtGia
+            // 
+            this.txtGia.Location = new System.Drawing.Point(422, 85);
+            this.txtGia.Name = "txtGia";
+            this.txtGia.Size = new System.Drawing.Size(130, 26);
+            this.txtGia.TabIndex = 13;
+            this.txtGia.Text = "Giá";
             // 
             // HangHoa
             // 
@@ -2064,5 +2083,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.TextBox txtMaNCC;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label txtGia;
     }
 }

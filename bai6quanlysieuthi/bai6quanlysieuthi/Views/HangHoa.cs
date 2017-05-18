@@ -72,6 +72,8 @@ namespace bai6quanlysieuthi.Views
             dgvMatHang.Columns["maquay"].HeaderText = @"Mã quầy";
             dgvMatHang.Columns["maquay"].Width = 60;
             dgvMatHang.Columns["manhacc"].Width = 60;
+            dgvMatHang.Columns["gia"].HeaderText = @"Giá";
+            dgvMatHang.Columns["gia"].Width = 60;
         }
         private void dgvMatHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -81,6 +83,7 @@ namespace bai6quanlysieuthi.Views
             cbDonViTinh.Text = dgvMatHang.CurrentRow.Cells[3].Value.ToString();
             cbMaQuay.Text = dgvMatHang.CurrentRow.Cells[4].Value.ToString();
             txtMaNCC.Text = dgvMatHang.CurrentRow.Cells[5].Value.ToString();
+            txtGia.Text = dgvMatHang.CurrentRow.Cells[6].Value.ToString();
         }
         #endregion
 

@@ -19,7 +19,6 @@ namespace bai6quanlysieuthi.Models
         public virtual DbSet<chucvu> chucvus { get; set; }
         public virtual DbSet<hoadon> hoadons { get; set; }
         public virtual DbSet<khachhang> khachhangs { get; set; }
-        public virtual DbSet<khachmuahang> khachmuahangs { get; set; }
         public virtual DbSet<khohang> khohangs { get; set; }
         public virtual DbSet<mathang> mathangs { get; set; }
         public virtual DbSet<nhacungcap> nhacungcaps { get; set; }

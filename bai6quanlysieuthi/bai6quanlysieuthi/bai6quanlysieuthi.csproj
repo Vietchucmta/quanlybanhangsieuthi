@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bus\DataProvider.cs" />
+    <Compile Include="Bus\GetID.cs" />
     <Compile Include="Controller\CTGiaoCaController.cs" />
     <Compile Include="Controller\CtHoaDonController.cs" />
     <Compile Include="Controller\CtPhieuNhapController.cs" />
@@ -71,7 +72,6 @@
     <Compile Include="Controller\KhachhangController.cs" />
     <Compile Include="Controller\KhoHangController.cs" />
     <Compile Include="Controller\KiemKeController.cs" />
-    <Compile Include="Controller\KMHController.cs" />
     <Compile Include="Controller\MatHangController.cs" />
     <Compile Include="Controller\NhaCCController.cs" />
     <Compile Include="Controller\NhanVienController.cs" />
@@ -115,7 +115,6 @@
     <Compile Include="Models\chucvu.cs" />
     <Compile Include="Models\hoadon.cs" />
     <Compile Include="Models\khachhang.cs" />
-    <Compile Include="Models\khachmuahang.cs" />
     <Compile Include="Models\khohang.cs" />
     <Compile Include="Models\mathang.cs" />
     <Compile Include="Models\nhacungcap.cs" />

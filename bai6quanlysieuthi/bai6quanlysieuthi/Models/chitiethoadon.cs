@@ -38,8 +38,10 @@ namespace bai6quanlysieuthi.Models
             this.mahoadon = row["mahoadon"].ToString();
             this.mamathang = row["mamathang"].ToString();
             this.soluong = (int)Convert.ToInt32(row["soluong"].ToString());
-            this.dongia = (float)Convert.ToDouble(row["dongia"].ToString());
+            try {
+                this.dongia = (float)Convert.ToDouble(row["dongia"].ToString());
+            }
+            catch { }
         }
-
     }
 }

@@ -16,7 +16,7 @@ namespace bai6quanlysieuthi.Views
         {
             InitializeComponent();
             Gecko.Xpcom.Initialize(Application.StartupPath + "\\xulrunner");
-            geckoWebBrowser1.Navigate("https://www.youtube.com/");
+            geckoWebBrowser1.Navigate(@"E:\3tailieu\thuctapnhom\quanlybanhangsieuthi\quanlybanhangsieuthi\HSD.html");
         }
 
        

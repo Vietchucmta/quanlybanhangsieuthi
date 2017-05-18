@@ -29,13 +29,16 @@ namespace bai6quanlysieuthi.Models
         [StringLength(20)]
         public string manhanvien { get; set; }
 
-        public hoadon(string ma,string manhanvien, float tonggiatri,float thanhtien, DateTime ngaylap)
+        public string makhachhang { get; set; }
+
+        public hoadon(string ma,string manhanvien, float tonggiatri,float thanhtien, DateTime ngaylap,string makh)
         { 
             this.ma = ma;
             this.manhanvien = manhanvien;
             this.ngaylap = ngaylap;
             this.tonggiatri = tonggiatri;
             this.thanhtien = thanhtien;
+            this.makhachhang = makh;
             
         }
 
@@ -44,8 +47,13 @@ namespace bai6quanlysieuthi.Models
             this.ma = row["ma"].ToString();
             this.manhanvien = row["manhanvien"].ToString();
             this.ngaylap = (DateTime)row["ngaylap"];
-            this.tonggiatri = (float)Convert.ToDouble(row["tonggiatri"].ToString());
-            this.thanhtien = (float)Convert.ToDouble(row["thanhtien"].ToString());
+            try
+            {
+                this.tonggiatri = (float)Convert.ToDouble(row["tonggiatri"].ToString());
+                this.thanhtien = (float)Convert.ToDouble(row["thanhtien"].ToString());
+            }
+            catch { }
+            this.makhachhang = row["makhachhang"].ToString();
         }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
