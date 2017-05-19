@@ -56,12 +56,24 @@ namespace bai6quanlysieuthi.Controller
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
         //tìm kiếm nhân viên
-        public List<nhanvien> SearchNhanVien(string ma,string ten,string sdt,string taikhoan)
+        public List<nhanvien> SearchNhanVien(string ma)
         {
             List<nhanvien> list = new List<nhanvien>();
-            string query = string.Format("select * from nhanvien nv where nv.ma like N'%{0}%' and nv.ten like N'%{1}%' and nv.sodienthoai like N'%{2}%'and nv.taikhoan like N'%{3}%' ", ma,ten,sdt,taikhoan);
+            string query = string.Format("select * from nhanvien where nhanvien.ma like N'%{0}%'", ma);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach(DataRow i in data.Rows)
+            {
+                nhanvien nv = new nhanvien(i);
+                list.Add(nv);
+            }
+            return list;
+        }
+        public List<nhanvien> SearchNhanVien1(string sdt)
+        {
+            List<nhanvien> list = new List<nhanvien>();
+            string query = string.Format("select * from nhanvien where nhanvien.sodienthoai like N'%{0}%'", sdt);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow i in data.Rows)
             {
                 nhanvien nv = new nhanvien(i);
                 list.Add(nv);

@@ -242,29 +242,19 @@ namespace bai6quanlysieuthi.Views
 #region
         private void btnSearch_NV_Click(object sender, EventArgs e)
         {
-            if (txtMa.Text == "" && txtTen.Text == "" && txtSoDienThoai.Text == ""&& txtTaiKhoan.Text == "")
+            if(cbSearch.Text== @"Mã nhân viên")
             {
-                if (txtMa.Text == "")
-                    errorProvider1.SetError(txtMa, "Chưa có mã nhân viên cần tìm");
-                if (txtTen.Text == "")
-                    errorProvider1.SetError(txtTen, "Chưa có tên cần tìm");
-                if (txtSoDienThoai.Text == "")
-                    errorProvider1.SetError(txtSoDienThoai, "Chưa có số điện thoại cần tìm");
-                if (txtTaiKhoan.Text == "")
-                    errorProvider1.SetError(txtTaiKhoan, "Chưa có tài khoản cần tìm");
-                MessageBox.Show("Nhập vào thông tin cần tìm");
+                if (txtSearch.Text !="")
+                {
+                    dgvNhanVien.DataSource = NhanVienController.Instance.SearchNhanVien(txtSearch.Text);
+                }
             }
-            else
+            else if(cbSearch.Text== @"Số điện thoại")
             {
-                errorProvider1.Clear();
-            }
-            string ma = txtMa.Text;
-            string ten = txtTen.Text;
-            string sodt = txtSoDienThoai.Text;
-            string taikhoan = txtTaiKhoan.Text;
-            if (txtMa.Text != "" || txtTen.Text != "" || txtSoDienThoai.Text != "" || txtTaiKhoan.Text != "")
-            {
-                dgvNhanVien.DataSource = NhanVienController.Instance.SearchNhanVien(ma, ten, sodt, taikhoan);
+                if (txtSearch.Text!="")
+                {
+                    dgvNhanVien.DataSource = NhanVienController.Instance.SearchNhanVien1(txtSearch.Text);
+                }
             }
         }
 #endregion
@@ -301,168 +291,24 @@ namespace bai6quanlysieuthi.Views
             txtMaNhanVienGc.Text = dgvPhieuGC.CurrentRow.Cells[4].Value.ToString();
         }
         #endregion
-#region thêm phiếu giao
+
         private void btnInsert_PGC_Click(object sender, EventArgs e)
         {
-            if (txtMaGC.Text == "" || txtMaQuayGC.Text == "" || txtMaNhanVienGc.Text == "" || cbCaGc.Text == "")
-            {
-                if (txtMaGC.Text == "")
-                    errorProvider1.SetError(txtMaGC, "Chưa có dữ liệu");
-                if (txtMaQuayGC.Text == "")
-                    errorProvider1.SetError(txtMaQuayGC, "Chưa có dữ liệu");
-                if (txtMaNhanVienGc.Text == "")
-                    errorProvider1.SetError(txtMaNhanVienGc, "Chưa có dữ liệu");
-                if (cbCaGc.Text == "")
-                    errorProvider1.SetError(cbCaGc, "Chưa có dữ liệu");
-            }
-            else
-            {
-                errorProvider1.Clear();
-            }
-            try
-            {
-                string ma = txtMaGC.Text;
-                string maquay = txtMaQuayGC.Text;
-                DateTime ngay = (DateTime)Convert.ToDateTime(dtpNgayGC.Value.ToString("MM/dd/yyyy"));
-                string manhanvien = txtMaNhanVienGc.Text;
-                int ca=0;
-                if (cbCaGc.Text == @"Ca 1")
-                    ca = 1;
-                else if (cbCaGc.Text == @"Ca 2")
-                    ca = 2;
-                else if (cbCaGc.Text == @"Ca 3")
-                    ca = 3;
-                if(txtMaGC.Text == "" || txtMaQuayGC.Text == "" || txtMaNhanVienGc.Text == "" || cbCaGc.Text == "")
-                {
-                    MessageBox.Show("Phải điền thông tin");
-                    return;
-                }
-                if (GiaoCaController.Instance.InsertGiaoCa(ma, ngay, ca, maquay, manhanvien))
-                {
-                    if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                    {
-                        MessageBox.Show("Thêm thành công!");
-                        ViewGiaoCa();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Không thành công");
-                }
-            }
-            catch {
-                MessageBox.Show("Lỗi thêm dữ liệu");
-                return;
-            }
+
         }
-        #endregion
-#region sửa phiếu giao ca
+
         private void btnUpdate_PGC_Click(object sender, EventArgs e)
         {
-            if (txtMaGC.Text == "" || txtMaQuayGC.Text == "" || txtMaNhanVienGc.Text == "" || cbCaGc.Text == "")
-            {
-                if (txtMaGC.Text == "")
-                    errorProvider1.SetError(txtMaGC, "Chưa có dữ liệu");
-                if (txtMaQuayGC.Text == "")
-                    errorProvider1.SetError(txtMaQuayGC, "Chưa có dữ liệu");
-                if (txtMaNhanVienGc.Text == "")
-                    errorProvider1.SetError(txtMaNhanVienGc, "Chưa có dữ liệu");
-                if (cbCaGc.Text == "")
-                    errorProvider1.SetError(cbCaGc, "Chưa có dữ liệu");
-            }
-            else
-            {
-                errorProvider1.Clear();
-            }
-            try
-            {
-                string ma = txtMaGC.Text;
-                string maquay = txtMaQuayGC.Text;
-                DateTime ngay = (DateTime)Convert.ToDateTime(dtpNgayGC.Value.ToString("MM/dd/yyyy"));
-                string manhanvien = txtMaNhanVienGc.Text;
-                int ca = 0;
-                if (cbCaGc.Text == @"Ca 1")
-                    ca = 1;
-                else if (cbCaGc.Text == @"Ca 2")
-                    ca = 2;
-                else if (cbCaGc.Text == @"Ca 3")
-                    ca = 3;
-                if (txtMaGC.Text == "" || txtMaQuayGC.Text == "" || txtMaNhanVienGc.Text == "" || cbCaGc.Text == "")
-                {
-                    MessageBox.Show("Phải điền thông tin");
-                    return;
-                }
-                if (GiaoCaController.Instance.UpdateGiaoCa(ma, ngay, ca, maquay, manhanvien))
-                {
-                    if (MessageBox.Show("Bạn có muốn sửa hay không", "Sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                    {
-                        MessageBox.Show("Sửa thành công!");
-                        ViewGiaoCa();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Không thành công");
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi thêm dữ liệu");
-                return;
-            }
+
         }
-#endregion
 
         private void btnDelete_PGC_Click(object sender, EventArgs e)
         {
-            errorProvider1.Clear();          
-            if (txtMaGC.Text == "")
-            {
-                errorProvider1.SetError(txtMaGC, "Chưa có dữ liệu");
-            }
-            else
-            {
-                errorProvider1.Clear();
-            }
-            string ma = txtMaGC.Text;
-            if (GiaoCaController.Instance.DeleteGiaoCa(ma))
-            {
-                if (MessageBox.Show("Bạn có muốn xóa hay không", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
 
-                    MessageBox.Show("Xóa thành công!");
-                    ViewGiaoCa();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Không thành công!");
-            }
         }
 
         private void btnSearch_PGC_Click(object sender, EventArgs e)
         {
-            if (txtMaGC.Text == "" && txtMaQuayGC.Text == "" && txtMaNhanVienGc.Text == "")
-            {
-                if (txtMaGC.Text == "")
-                    errorProvider1.SetError(txtMaGC, "Nhập vào mã cần tìm");
-                if (txtMaQuayGC.Text == "")
-                    errorProvider1.SetError(txtMaQuayGC, "Nhập mã quầy cần tìm");
-                if (txtMaNhanVienGc.Text == "")
-                    errorProvider1.SetError(txtMaNhanVienGc, "Nhập mã nhân viên cần tìm");
-                MessageBox.Show("Chưa có thông tin cần tìm");
-            }
-            else
-            {
-                errorProvider1.Clear();
-            }
-            string ma = txtMaGC.Text;
-            string maquay = txtMaQuayGC.Text;
-            string manhanvien = txtMaNhanVienGc.Text;
-            if (txtMaGC.Text != "" || txtMaQuayGC.Text != "" || txtMaNhanVienGc.Text != "")
-            {
-                dgvPhieuGC.DataSource = GiaoCaController.Instance.SearchGiaoCa(ma, maquay, manhanvien);
-            }
 
         }
 
@@ -500,126 +346,19 @@ namespace bai6quanlysieuthi.Views
             txtSoLuongCgc.Text = dgvCtGiaoCa.CurrentRow.Cells[3].Value.ToString();
         }
         #endregion
-#region thêm chi tiết phiếu giao ca
         private void btnInsert_CTPGC_Click(object sender, EventArgs e)
         {
-            if (txtMaGiaoCaCgc.Text == "" || txtMaMatHangCgc.Text == "" || txtSoLuongCgc.Text == "")
-            {
-                if (txtMaGiaoCaCgc.Text == "")
-                    errorProvider1.SetError(txtMaGiaoCaCgc, "Chưa có dữ liệu");
-                if (txtMaMatHangCgc.Text == "")
-                    errorProvider1.SetError(txtMaMatHangCgc, "Chưa có dữ liệu");
-                if (txtSoLuongCgc.Text == "")
-                    errorProvider1.SetError(txtSoLuongCgc, "Chưa có dữ liệu");
-            }
-            else
-            {
-                errorProvider1.Clear();
-            }
-            try
-            {
-                string magc = txtMaGiaoCaCgc.Text;
-                string mamh = txtMaMatHangCgc.Text;
-                int sl = (int)Convert.ToInt32(txtSoLuongCgc.Text);
-                if(txtMaGiaoCaCgc.Text == "" || txtMaMatHangCgc.Text == "" || txtSoLuongCgc.Text == "")
-                {
-                    MessageBox.Show("Chưa có dữ liệu ");
-                    return;
-                }
-                if (CTGiaoCaController.Instance.InsertCtGiaoCa(magc, mamh, sl))
-                {
-                    if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                    {
-                        MessageBox.Show("Thêm thành công!");
-                        ViewCTGiaoCa();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Không thành công");
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi dữ liệu");
-                return;
-            }
+
         }
-        #endregion
-#region sửa chi tiết phiếu giao ca
+
         private void btnUpdate_CTPGC_Click(object sender, EventArgs e)
         {
-            if (txtMaGiaoCaCgc.Text == "" || txtMaMatHangCgc.Text == "" || txtSoLuongCgc.Text == "")
-            {
-                if (txtMaGiaoCaCgc.Text == "")
-                    errorProvider1.SetError(txtMaGiaoCaCgc, "Chưa có dữ liệu");
-                if (txtMaMatHangCgc.Text == "")
-                    errorProvider1.SetError(txtMaMatHangCgc, "Chưa có dữ liệu");
-                if (txtSoLuongCgc.Text == "")
-                    errorProvider1.SetError(txtSoLuongCgc, "Chưa có dữ liệu");
-            }
-            else
-            {
-                errorProvider1.Clear();
-            }
-            try
-            {
-                int stt = (int)Convert.ToInt32(txtSTTCgc.Text);
-                string magc = txtMaGiaoCaCgc.Text;
-                string mamh = txtMaMatHangCgc.Text;
-                int sl = (int)Convert.ToInt32(txtSoLuongCgc.Text);
-                if (txtMaGiaoCaCgc.Text == "" || txtMaMatHangCgc.Text == "" || txtSoLuongCgc.Text == "")
-                {
-                    MessageBox.Show("Chưa có dữ liệu ");
-                    return;
-                }
-                if (CTGiaoCaController.Instance.UpdateCtGiaoCa(stt,magc, mamh, sl))
-                {
-                    if (MessageBox.Show("Bạn có muốn sửa hay không", "Sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                    {
-                        MessageBox.Show("Sửa thành công!");
-                        ViewCTGiaoCa();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Không thành công");
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi dữ liệu");
-                return;
-            }
+
         }
-#endregion
 
         private void btnDelete_CTPGC_Click(object sender, EventArgs e)
         {
-            if (txtSTTCgc.Text == "")
-            {
-                errorProvider1.SetError(txtSTTCgc, "Chưa có stt cần xóa");
-                MessageBox.Show("Nhập vào stt cần xóa");
-                return;
-            }
-            else
-            {
-                errorProvider1.Clear();
-            }
-            int stt = (int)Convert.ToInt32(txtSTTCgc.Text);
-            if (CTGiaoCaController.Instance.DeleteCtGiaoCa(stt))
-            {
-                if (MessageBox.Show("Bạn có muốn xóa hay không", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
 
-                    MessageBox.Show("Xóa thành công!");
-                    ViewCTGiaoCa();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Không thành công!");
-            }
         }
 
         private void btnExit_CTPGC_Click(object sender, EventArgs e)
@@ -629,25 +368,7 @@ namespace bai6quanlysieuthi.Views
 
         private void btnSearch_CTPGC_Click(object sender, EventArgs e)
         {
-            if ( txtMaGiaoCaCgc.Text == "" && txtMaMatHangCgc.Text == "")
-            {
-                if (txtMaGiaoCaCgc.Text == "")
-                    errorProvider1.SetError(txtMaGiaoCaCgc, "Chưa có dữ liệu");
-                if (txtMaMatHangCgc.Text == "")
-                    errorProvider1.SetError(txtMaMatHangCgc, "Chưa có dữ liệu");
-                MessageBox.Show("Chưa có thông tin cần tìm");
-            }
-            else
-            {
-                errorProvider1.Clear();
-            }
-            string magc = txtMaGiaoCaCgc.Text;
-            string mamh = txtMaMatHangCgc.Text;
-            if(txtMaGiaoCaCgc.Text != "" || txtMaMatHangCgc.Text != "")
-            {
-                dgvCtGiaoCa.DataSource= CTGiaoCaController.Instance.SearchCtGiaoCa(magc, mamh);
-                
-            }
+
         }
 
 
