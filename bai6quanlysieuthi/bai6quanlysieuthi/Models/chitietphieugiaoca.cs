@@ -1,3 +1,4 @@
+
 namespace bai6quanlysieuthi.Models
 {
     using System;

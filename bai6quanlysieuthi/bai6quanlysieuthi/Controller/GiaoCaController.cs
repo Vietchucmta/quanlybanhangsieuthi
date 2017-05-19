@@ -24,7 +24,7 @@ namespace bai6quanlysieuthi.Controller
         }
 
         public GiaoCaController() { }
-
+        // xem phiếu giao ca
         public List<phieugiaoca> XemGiaoCa()
         {
             List<phieugiaoca> list = new List<phieugiaoca>();
@@ -34,6 +34,37 @@ namespace bai6quanlysieuthi.Controller
             {
                 phieugiaoca hd = new phieugiaoca(item);
                 list.Add(hd);
+            }
+            return list;
+        }
+        //  thêm phiếu giao ca
+        public bool InsertGiaoCa(string ma, DateTime ngay,int ca, string maquay,string manhanvien)
+        {
+            string query = string.Format("insert phieugiaoca(ma,ngay,ca,maquay,manhanvien) values(N'{0}',N'{1}',{2},N'{3}',N'{4}')", ma, ngay, ca, maquay, manhanvien);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        // update phiếu giao ca
+        public bool UpdateGiaoCa(string ma, DateTime ngay, int ca, string maquay, string manhanvien)
+        {
+            string query = string.Format("update phieugiaoca set ngay=N'{0}',ca={1},maquay=N'{2}',manhanvien=N'{3}' where ma=N'{4}'", ngay, ca, maquay, manhanvien, ma);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        // delete phiếu giao ca
+        public bool DeleteGiaoCa(string ma)
+        {
+            string query = string.Format("delete phieugiaoca where ma=N'{0}'", ma);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        // tìm kiếm phiếu giao ca
+        public List<phieugiaoca> SearchGiaoCa(string ma,string maquay,string manhanvien)
+        {
+            List<phieugiaoca> list = new List<phieugiaoca>();
+            string query = string.Format("select * from phieugiaoca gc where gc.ma like N'%{0}%' and gc.maquay like N'%{1}%' and gc.manhanvien like N'%{2}%'", ma,maquay,manhanvien);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach(DataRow i in data.Rows)
+            {
+                phieugiaoca gc = new phieugiaoca(i);
+                list.Add(gc);
             }
             return list;
         }

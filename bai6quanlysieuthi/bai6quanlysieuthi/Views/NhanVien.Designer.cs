@@ -31,11 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.cbSearch = new System.Windows.Forms.ComboBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch_NV = new System.Windows.Forms.Button();
             this.btnExit_NV = new System.Windows.Forms.Button();
+            this.btnSearch_NV = new System.Windows.Forms.Button();
             this.btnDelete_NV = new System.Windows.Forms.Button();
             this.btnUpdate_NV = new System.Windows.Forms.Button();
             this.btnInsert_NV = new System.Windows.Forms.Button();
@@ -59,11 +56,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.cbSearchGc = new System.Windows.Forms.ComboBox();
-            this.txtSearchGc = new System.Windows.Forms.TextBox();
-            this.btnSearch_PGC = new System.Windows.Forms.Button();
             this.btnExit_PGC = new System.Windows.Forms.Button();
+            this.btnSearch_PGC = new System.Windows.Forms.Button();
             this.btnDelete_PGC = new System.Windows.Forms.Button();
             this.btnUpdate_PGC = new System.Windows.Forms.Button();
             this.btnInsert_PGC = new System.Windows.Forms.Button();
@@ -82,9 +76,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnExit_CTPGC = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.cbSearchCgc = new System.Windows.Forms.ComboBox();
-            this.txtSearchCgc = new System.Windows.Forms.TextBox();
             this.btnSearch_CTPGC = new System.Windows.Forms.Button();
             this.btnDelete_CTPGC = new System.Windows.Forms.Button();
             this.btnUpdate_CTPGC = new System.Windows.Forms.Button();
@@ -108,15 +99,12 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuGC)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCtGiaoCa)).BeginInit();
             this.panel6.SuspendLayout();
             this.mnsNhanVien.SuspendLayout();
@@ -137,8 +125,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.panel3);
             this.tabPage1.Controls.Add(this.btnExit_NV);
+            this.tabPage1.Controls.Add(this.btnSearch_NV);
             this.tabPage1.Controls.Add(this.btnDelete_NV);
             this.tabPage1.Controls.Add(this.btnUpdate_NV);
             this.tabPage1.Controls.Add(this.btnInsert_NV);
@@ -153,50 +141,10 @@
             this.tabPage1.Text = "Nhân viên";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.cbSearch);
-            this.panel3.Controls.Add(this.txtSearch);
-            this.panel3.Controls.Add(this.btnSearch_NV);
-            this.panel3.Location = new System.Drawing.Point(43, 180);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(618, 43);
-            this.panel3.TabIndex = 16;
-            // 
-            // cbSearch
-            // 
-            this.cbSearch.FormattingEnabled = true;
-            this.cbSearch.Items.AddRange(new object[] {
-            "Mã nhân viên",
-            "Số điện thoại"});
-            this.cbSearch.Location = new System.Drawing.Point(36, 8);
-            this.cbSearch.Name = "cbSearch";
-            this.cbSearch.Size = new System.Drawing.Size(145, 28);
-            this.cbSearch.TabIndex = 12;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(210, 8);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(224, 26);
-            this.txtSearch.TabIndex = 11;
-            // 
-            // btnSearch_NV
-            // 
-            this.btnSearch_NV.Location = new System.Drawing.Point(468, 8);
-            this.btnSearch_NV.Name = "btnSearch_NV";
-            this.btnSearch_NV.Size = new System.Drawing.Size(98, 28);
-            this.btnSearch_NV.TabIndex = 1;
-            this.btnSearch_NV.Text = "Tìm kiếm";
-            this.btnSearch_NV.UseVisualStyleBackColor = true;
-            this.btnSearch_NV.Click += new System.EventHandler(this.btnSearch_NV_Click);
-            // 
             // btnExit_NV
             // 
             this.btnExit_NV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit_NV.Location = new System.Drawing.Point(723, 354);
+            this.btnExit_NV.Location = new System.Drawing.Point(760, 364);
             this.btnExit_NV.Name = "btnExit_NV";
             this.btnExit_NV.Size = new System.Drawing.Size(75, 75);
             this.btnExit_NV.TabIndex = 15;
@@ -204,10 +152,20 @@
             this.btnExit_NV.UseVisualStyleBackColor = true;
             this.btnExit_NV.Click += new System.EventHandler(this.btnExit_NV_Click);
             // 
+            // btnSearch_NV
+            // 
+            this.btnSearch_NV.Location = new System.Drawing.Point(679, 364);
+            this.btnSearch_NV.Name = "btnSearch_NV";
+            this.btnSearch_NV.Size = new System.Drawing.Size(75, 75);
+            this.btnSearch_NV.TabIndex = 1;
+            this.btnSearch_NV.Text = "Tìm kiếm";
+            this.btnSearch_NV.UseVisualStyleBackColor = true;
+            this.btnSearch_NV.Click += new System.EventHandler(this.btnSearch_NV_Click);
+            // 
             // btnDelete_NV
             // 
             this.btnDelete_NV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete_NV.Location = new System.Drawing.Point(758, 262);
+            this.btnDelete_NV.Location = new System.Drawing.Point(760, 272);
             this.btnDelete_NV.Name = "btnDelete_NV";
             this.btnDelete_NV.Size = new System.Drawing.Size(75, 75);
             this.btnDelete_NV.TabIndex = 13;
@@ -218,7 +176,7 @@
             // btnUpdate_NV
             // 
             this.btnUpdate_NV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate_NV.Location = new System.Drawing.Point(679, 262);
+            this.btnUpdate_NV.Location = new System.Drawing.Point(679, 272);
             this.btnUpdate_NV.Name = "btnUpdate_NV";
             this.btnUpdate_NV.Size = new System.Drawing.Size(75, 75);
             this.btnUpdate_NV.TabIndex = 12;
@@ -251,9 +209,9 @@
             // dgvNhanVien
             // 
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNhanVien.Location = new System.Drawing.Point(43, 234);
+            this.dgvNhanVien.Location = new System.Drawing.Point(43, 180);
             this.dgvNhanVien.Name = "dgvNhanVien";
-            this.dgvNhanVien.Size = new System.Drawing.Size(618, 205);
+            this.dgvNhanVien.Size = new System.Drawing.Size(618, 259);
             this.dgvNhanVien.TabIndex = 9;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
@@ -418,8 +376,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.btnExit_PGC);
+            this.tabPage2.Controls.Add(this.btnSearch_PGC);
             this.tabPage2.Controls.Add(this.btnDelete_PGC);
             this.tabPage2.Controls.Add(this.btnUpdate_PGC);
             this.tabPage2.Controls.Add(this.btnInsert_PGC);
@@ -434,47 +392,6 @@
             this.tabPage2.Text = "Phiếu giao ca";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.cbSearchGc);
-            this.panel4.Controls.Add(this.txtSearchGc);
-            this.panel4.Controls.Add(this.btnSearch_PGC);
-            this.panel4.Location = new System.Drawing.Point(51, 142);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(601, 43);
-            this.panel4.TabIndex = 16;
-            // 
-            // cbSearchGc
-            // 
-            this.cbSearchGc.FormattingEnabled = true;
-            this.cbSearchGc.Items.AddRange(new object[] {
-            "Mã phiếu giao ca",
-            "Mã nhân viên",
-            "Mã quầy"});
-            this.cbSearchGc.Location = new System.Drawing.Point(36, 8);
-            this.cbSearchGc.Name = "cbSearchGc";
-            this.cbSearchGc.Size = new System.Drawing.Size(145, 28);
-            this.cbSearchGc.TabIndex = 12;
-            // 
-            // txtSearchGc
-            // 
-            this.txtSearchGc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchGc.Location = new System.Drawing.Point(210, 8);
-            this.txtSearchGc.Name = "txtSearchGc";
-            this.txtSearchGc.Size = new System.Drawing.Size(224, 26);
-            this.txtSearchGc.TabIndex = 11;
-            // 
-            // btnSearch_PGC
-            // 
-            this.btnSearch_PGC.Location = new System.Drawing.Point(468, 8);
-            this.btnSearch_PGC.Name = "btnSearch_PGC";
-            this.btnSearch_PGC.Size = new System.Drawing.Size(98, 28);
-            this.btnSearch_PGC.TabIndex = 1;
-            this.btnSearch_PGC.Text = "Tìm kiếm";
-            this.btnSearch_PGC.UseVisualStyleBackColor = true;
-            this.btnSearch_PGC.Click += new System.EventHandler(this.btnSearch_PGC_Click);
-            // 
             // btnExit_PGC
             // 
             this.btnExit_PGC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -485,6 +402,16 @@
             this.btnExit_PGC.Text = "Thoát";
             this.btnExit_PGC.UseVisualStyleBackColor = true;
             this.btnExit_PGC.Click += new System.EventHandler(this.btnExit_PGC_Click);
+            // 
+            // btnSearch_PGC
+            // 
+            this.btnSearch_PGC.Location = new System.Drawing.Point(668, 348);
+            this.btnSearch_PGC.Name = "btnSearch_PGC";
+            this.btnSearch_PGC.Size = new System.Drawing.Size(75, 75);
+            this.btnSearch_PGC.TabIndex = 1;
+            this.btnSearch_PGC.Text = "Tìm kiếm";
+            this.btnSearch_PGC.UseVisualStyleBackColor = true;
+            this.btnSearch_PGC.Click += new System.EventHandler(this.btnSearch_PGC_Click);
             // 
             // btnDelete_PGC
             // 
@@ -533,9 +460,9 @@
             // dgvPhieuGC
             // 
             this.dgvPhieuGC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPhieuGC.Location = new System.Drawing.Point(51, 191);
+            this.dgvPhieuGC.Location = new System.Drawing.Point(51, 142);
             this.dgvPhieuGC.Name = "dgvPhieuGC";
-            this.dgvPhieuGC.Size = new System.Drawing.Size(601, 232);
+            this.dgvPhieuGC.Size = new System.Drawing.Size(601, 281);
             this.dgvPhieuGC.TabIndex = 9;
             this.dgvPhieuGC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuGC_CellClick);
             // 
@@ -648,7 +575,7 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnExit_CTPGC);
-            this.tabPage3.Controls.Add(this.panel5);
+            this.tabPage3.Controls.Add(this.btnSearch_CTPGC);
             this.tabPage3.Controls.Add(this.btnDelete_CTPGC);
             this.tabPage3.Controls.Add(this.btnUpdate_CTPGC);
             this.tabPage3.Controls.Add(this.btnInsert_CTPGC);
@@ -665,7 +592,7 @@
             // btnExit_CTPGC
             // 
             this.btnExit_CTPGC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit_CTPGC.Location = new System.Drawing.Point(715, 350);
+            this.btnExit_CTPGC.Location = new System.Drawing.Point(750, 350);
             this.btnExit_CTPGC.Name = "btnExit_CTPGC";
             this.btnExit_CTPGC.Size = new System.Drawing.Size(75, 75);
             this.btnExit_CTPGC.TabIndex = 25;
@@ -673,42 +600,11 @@
             this.btnExit_CTPGC.UseVisualStyleBackColor = true;
             this.btnExit_CTPGC.Click += new System.EventHandler(this.btnExit_CTPGC_Click);
             // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.cbSearchCgc);
-            this.panel5.Controls.Add(this.txtSearchCgc);
-            this.panel5.Controls.Add(this.btnSearch_CTPGC);
-            this.panel5.Location = new System.Drawing.Point(52, 134);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(601, 43);
-            this.panel5.TabIndex = 23;
-            // 
-            // cbSearchCgc
-            // 
-            this.cbSearchCgc.FormattingEnabled = true;
-            this.cbSearchCgc.Items.AddRange(new object[] {
-            "Mã phiếu giao ca",
-            "Mã nhân viên",
-            "Mã quầy"});
-            this.cbSearchCgc.Location = new System.Drawing.Point(36, 8);
-            this.cbSearchCgc.Name = "cbSearchCgc";
-            this.cbSearchCgc.Size = new System.Drawing.Size(145, 28);
-            this.cbSearchCgc.TabIndex = 12;
-            // 
-            // txtSearchCgc
-            // 
-            this.txtSearchCgc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchCgc.Location = new System.Drawing.Point(210, 8);
-            this.txtSearchCgc.Name = "txtSearchCgc";
-            this.txtSearchCgc.Size = new System.Drawing.Size(224, 26);
-            this.txtSearchCgc.TabIndex = 11;
-            // 
             // btnSearch_CTPGC
             // 
-            this.btnSearch_CTPGC.Location = new System.Drawing.Point(468, 8);
+            this.btnSearch_CTPGC.Location = new System.Drawing.Point(671, 350);
             this.btnSearch_CTPGC.Name = "btnSearch_CTPGC";
-            this.btnSearch_CTPGC.Size = new System.Drawing.Size(98, 28);
+            this.btnSearch_CTPGC.Size = new System.Drawing.Size(75, 75);
             this.btnSearch_CTPGC.TabIndex = 1;
             this.btnSearch_CTPGC.Text = "Tìm kiếm";
             this.btnSearch_CTPGC.UseVisualStyleBackColor = true;
@@ -761,9 +657,9 @@
             // dgvCtGiaoCa
             // 
             this.dgvCtGiaoCa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCtGiaoCa.Location = new System.Drawing.Point(52, 183);
+            this.dgvCtGiaoCa.Location = new System.Drawing.Point(52, 145);
             this.dgvCtGiaoCa.Name = "dgvCtGiaoCa";
-            this.dgvCtGiaoCa.Size = new System.Drawing.Size(601, 242);
+            this.dgvCtGiaoCa.Size = new System.Drawing.Size(601, 280);
             this.dgvCtGiaoCa.TabIndex = 18;
             this.dgvCtGiaoCa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCtGiaoCa_CellClick);
             // 
@@ -812,7 +708,6 @@
             this.txtSTTCgc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSTTCgc.Location = new System.Drawing.Point(157, 12);
             this.txtSTTCgc.Name = "txtSTTCgc";
-            this.txtSTTCgc.ReadOnly = true;
             this.txtSTTCgc.Size = new System.Drawing.Size(183, 26);
             this.txtSTTCgc.TabIndex = 16;
             // 
@@ -909,20 +804,14 @@
             this.Text = "Nhân viên";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuGC)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCtGiaoCa)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -947,9 +836,6 @@
         private System.Windows.Forms.ToolStripMenuItem hướngDấnToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox cbSearch;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch_NV;
         private System.Windows.Forms.Button btnExit_NV;
         private System.Windows.Forms.Button btnDelete_NV;
@@ -973,9 +859,6 @@
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.TextBox txtTaiKhoan;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox cbSearchGc;
-        private System.Windows.Forms.TextBox txtSearchGc;
         private System.Windows.Forms.Button btnSearch_PGC;
         private System.Windows.Forms.Button btnExit_PGC;
         private System.Windows.Forms.Button btnDelete_PGC;
@@ -994,9 +877,6 @@
         private System.Windows.Forms.DateTimePicker dtpNgayGC;
         private System.Windows.Forms.ComboBox cbCaGc;
         private System.Windows.Forms.Button btnExit_CTPGC;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox cbSearchCgc;
-        private System.Windows.Forms.TextBox txtSearchCgc;
         private System.Windows.Forms.Button btnSearch_CTPGC;
         private System.Windows.Forms.Button btnDelete_CTPGC;
         private System.Windows.Forms.Button btnUpdate_CTPGC;
