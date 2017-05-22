@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnExit_CTHD = new System.Windows.Forms.Button();
             this.btnDelete_CTHD = new System.Windows.Forms.Button();
             this.btnUpdate_CTHD = new System.Windows.Forms.Button();
@@ -41,8 +41,8 @@
             this.txtSearchCTHD = new System.Windows.Forms.TextBox();
             this.cbSearchCTHD = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtMaHoaDon = new System.Windows.Forms.TextBox();
             this.cbMaMatHang = new System.Windows.Forms.ComboBox();
+            this.cbMaHoaDon = new System.Windows.Forms.ComboBox();
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.txtSTT = new System.Windows.Forms.TextBox();
@@ -116,14 +116,14 @@
             // dgvCtHoaDon
             // 
             this.dgvCtHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCtHoaDon.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCtHoaDon.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCtHoaDon.Location = new System.Drawing.Point(64, 190);
             this.dgvCtHoaDon.Name = "dgvCtHoaDon";
             this.dgvCtHoaDon.Size = new System.Drawing.Size(571, 244);
@@ -175,8 +175,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.txtMaHoaDon);
             this.panel2.Controls.Add(this.cbMaMatHang);
+            this.panel2.Controls.Add(this.cbMaHoaDon);
             this.panel2.Controls.Add(this.txtDonGia);
             this.panel2.Controls.Add(this.txtSoLuong);
             this.panel2.Controls.Add(this.txtSTT);
@@ -190,14 +190,6 @@
             this.panel2.Size = new System.Drawing.Size(756, 120);
             this.panel2.TabIndex = 22;
             // 
-            // txtMaHoaDon
-            // 
-            this.txtMaHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaHoaDon.Location = new System.Drawing.Point(180, 42);
-            this.txtMaHoaDon.Name = "txtMaHoaDon";
-            this.txtMaHoaDon.Size = new System.Drawing.Size(101, 26);
-            this.txtMaHoaDon.TabIndex = 10;
-            // 
             // cbMaMatHang
             // 
             this.cbMaMatHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -207,12 +199,20 @@
             this.cbMaMatHang.Size = new System.Drawing.Size(101, 28);
             this.cbMaMatHang.TabIndex = 9;
             // 
+            // cbMaHoaDon
+            // 
+            this.cbMaHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaHoaDon.FormattingEnabled = true;
+            this.cbMaHoaDon.Location = new System.Drawing.Point(180, 40);
+            this.cbMaHoaDon.Name = "cbMaHoaDon";
+            this.cbMaHoaDon.Size = new System.Drawing.Size(101, 28);
+            this.cbMaHoaDon.TabIndex = 8;
+            // 
             // txtDonGia
             // 
             this.txtDonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDonGia.Location = new System.Drawing.Point(526, 42);
             this.txtDonGia.Name = "txtDonGia";
-            this.txtDonGia.ReadOnly = true;
             this.txtDonGia.Size = new System.Drawing.Size(164, 26);
             this.txtDonGia.TabIndex = 7;
             // 
@@ -229,7 +229,6 @@
             this.txtSTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSTT.Location = new System.Drawing.Point(180, 8);
             this.txtSTT.Name = "txtSTT";
-            this.txtSTT.ReadOnly = true;
             this.txtSTT.Size = new System.Drawing.Size(101, 26);
             this.txtSTT.TabIndex = 5;
             // 
@@ -249,7 +248,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Giá tiền";
+            this.label4.Text = "Đơn giá";
             // 
             // label3
             // 
@@ -321,6 +320,7 @@
         private System.Windows.Forms.ComboBox cbSearchCTHD;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox cbMaMatHang;
+        private System.Windows.Forms.ComboBox cbMaHoaDon;
         private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.TextBox txtSTT;
@@ -330,6 +330,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.TextBox txtMaHoaDon;
     }
 }

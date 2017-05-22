@@ -36,12 +36,13 @@ namespace bai6quanlysieuthi.Views
             dgvCtXuatKho.Columns["dongia"].HeaderText = @"Đơng giá";
             dgvCtXuatKho.Columns["dongia"].Width = 80;
         }
-#endregion 
+        #endregion
+#region thêm chi tiết phiếu xuất kho
         private void btnInsert_CTXK_Click(object sender, EventArgs e)
         {
 
         }
-
+#endregion
         private void btnUpdate_CTXK_Click(object sender, EventArgs e)
         {
 

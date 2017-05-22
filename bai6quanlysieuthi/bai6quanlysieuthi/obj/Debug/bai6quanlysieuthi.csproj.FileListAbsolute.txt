@@ -50,3 +50,6 @@ E:\3tailieu\thuctapnhom\quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieu
 E:\3tailieu\thuctapnhom\quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.csproj.GenerateResource.Cache
 E:\3tailieu\thuctapnhom\quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.exe
 E:\3tailieu\thuctapnhom\quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.pdb
+E:\New folder\Thực tập nhóm\quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\bin\Debug\bai6quanlysieuthi.exe.config
+E:\New folder\Thực tập nhóm\quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.exe
+E:\New folder\Thực tập nhóm\quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.pdb

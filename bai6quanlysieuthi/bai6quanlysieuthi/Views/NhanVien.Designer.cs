@@ -169,6 +169,7 @@
             this.cbSearch.FormattingEnabled = true;
             this.cbSearch.Items.AddRange(new object[] {
             "Mã nhân viên",
+            "Tên nhân viên",
             "Số điện thoại"});
             this.cbSearch.Location = new System.Drawing.Point(36, 8);
             this.cbSearch.Name = "cbSearch";
@@ -253,7 +254,7 @@
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhanVien.Location = new System.Drawing.Point(43, 234);
             this.dgvNhanVien.Name = "dgvNhanVien";
-            this.dgvNhanVien.Size = new System.Drawing.Size(618, 205);
+            this.dgvNhanVien.Size = new System.Drawing.Size(618, 195);
             this.dgvNhanVien.TabIndex = 9;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
@@ -286,6 +287,7 @@
             this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMatKhau.Location = new System.Drawing.Point(480, 129);
             this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(274, 26);
             this.txtMatKhau.TabIndex = 26;
             // 
@@ -812,7 +814,6 @@
             this.txtSTTCgc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSTTCgc.Location = new System.Drawing.Point(157, 12);
             this.txtSTTCgc.Name = "txtSTTCgc";
-            this.txtSTTCgc.ReadOnly = true;
             this.txtSTTCgc.Size = new System.Drawing.Size(183, 26);
             this.txtSTTCgc.TabIndex = 16;
             // 

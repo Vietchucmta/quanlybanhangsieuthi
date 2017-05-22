@@ -24,7 +24,7 @@ namespace bai6quanlysieuthi.Controller
         }
 
         private CtXuatKhoController() { }
-
+        // xem chi tiết phiếu xuất
         public List<chitietphieuxuat> XemCtXuatKho()
         {
             List<chitietphieuxuat> list = new List<chitietphieuxuat>();
@@ -34,6 +34,31 @@ namespace bai6quanlysieuthi.Controller
             {
                 chitietphieuxuat hd = new chitietphieuxuat(item);
                 list.Add(hd);
+            }
+            return list;
+        }
+        // thêm chi tiết phiếu xuất
+        //public List<chitietphieuxuat> InsertCtXuat(string maxuat,string mamathang,int sl)
+        //{
+        //    string query =string.Format("insert chitietphieuxuat(maxuat,mamathang,sl)")
+        //}
+
+        // xóa chi tiết phiếu xuất
+        public bool DeleteCtXuat(int stt)
+        {
+            string query = string.Format("delete chitietphieuxuat a where a.stt={0}", stt);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        // tìm kiếm chi tiết phiếu xuất
+        public List<chitietphieuxuat> SearchCtXuat(string maxuat , string mamathang)
+        {
+            List<chitietphieuxuat> list = new List<chitietphieuxuat>();
+            string query = string.Format("select * from chitietphieuxuat a where a.maxuat like N'%{0}%' and a.mamathang like N'%{1}%' ", maxuat,mamathang);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow i in data.Rows)
+            {
+                chitietphieuxuat mh = new chitietphieuxuat(i);
+                list.Add(mh);
             }
             return list;
         }

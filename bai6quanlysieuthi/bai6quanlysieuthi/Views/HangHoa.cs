@@ -72,8 +72,6 @@ namespace bai6quanlysieuthi.Views
             dgvMatHang.Columns["maquay"].HeaderText = @"Mã quầy";
             dgvMatHang.Columns["maquay"].Width = 60;
             dgvMatHang.Columns["manhacc"].Width = 60;
-            dgvMatHang.Columns["gia"].HeaderText = @"Giá";
-            dgvMatHang.Columns["gia"].Width = 60;
         }
         private void dgvMatHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -83,7 +81,6 @@ namespace bai6quanlysieuthi.Views
             cbDonViTinh.Text = dgvMatHang.CurrentRow.Cells[3].Value.ToString();
             cbMaQuay.Text = dgvMatHang.CurrentRow.Cells[4].Value.ToString();
             txtMaNCC.Text = dgvMatHang.CurrentRow.Cells[5].Value.ToString();
-            txtGia.Text = dgvMatHang.CurrentRow.Cells[6].Value.ToString();
         }
         #endregion
 
@@ -173,74 +170,6 @@ namespace bai6quanlysieuthi.Views
         }
         #endregion
 
-        #region Nhập Kho
-#region View nhập kho
-
-        private void btnView_NK_Click(object sender, EventArgs e)
-        {
-            errorProvider1.Clear();
-            ViewNhapKho();
-        }
-
-        void ViewNhapKho()
-        {
-            dgvNK.DataSource = NhapKhoController.Instance.XemNhapKho();
-            dgvNK.Columns["ma"].HeaderText = @"Mã nk";
-            dgvNK.Columns["ma"].Width = 45;
-            dgvNK.Columns["makhohang"].HeaderText = @"Mã kho hàng";
-            dgvNK.Columns["makhohang"].Width = 50;
-            dgvNK.Columns["ngaynhap"].HeaderText = @"Ngày nhập";
-            dgvNK.Columns["ngaynhap"].Width = 80;
-            dgvNK.Columns["tonggiatri"].HeaderText = @"Tổng giá trị";
-            dgvNK.Columns["tonggiatri"].Width = 80;
-            dgvNK.Columns["manhacungcap"].HeaderText = @"Mã ncc";
-            dgvNK.Columns["manhacungcap"].Width = 60;
-            dgvNK.Columns["manhanvien"].HeaderText = @"Mã nv";
-            dgvNK.Columns["manhanvien"].Width = 60;
-        }
-        private void dgvNK_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtMaNK.Text = dgvNK.CurrentRow.Cells[0].Value.ToString();
-            cbMaKhoHangNk.Text = dgvNK.CurrentRow.Cells[1].Value.ToString();
-            dtpNgayLapNk.Text = dgvNK.CurrentRow.Cells[2].Value.ToString();
-            txtTongGiaTriNK.Text = dgvNK.CurrentRow.Cells[3].Value.ToString();
-            cbMaNCCNk.Text = dgvNK.CurrentRow.Cells[4].Value.ToString();
-            cbMaNhanVienNK.Text = dgvNK.CurrentRow.Cells[5].Value.ToString();
-        }
-        
-        #endregion
-        private void btnInsert_NK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUpdate_NK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_NK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnExit_NK_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnSearch_Nk_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDetail_NK_Click(object sender, EventArgs e)
-        {
-            ChiTiet_NhapKho f = new ChiTiet_NhapKho();
-            f.ShowDialog();
-        }
-        #endregion
-
         #region Xuất kho
 #region phiếu xuất kho
         private void btnView_XK_Click(object sender, EventArgs e)
@@ -275,11 +204,53 @@ namespace bai6quanlysieuthi.Views
             cbMaQuayXK.Text = dgvXK.CurrentRow.Cells[5].Value.ToString();
         }
         #endregion
+#region thêm phiếu xuất kho
         private void btnInsert_XK_Click(object sender, EventArgs e)
         {
-
+            if (txtMaXk.Text == "" || cbMaKhoHangXk.Text == "" || cbMaNhanVienXk.Text == "" || cbMaQuayXK.Text == "")
+            {
+                if (txtMaXk.Text == "")
+                    errorProvider1.SetError(txtMaXk, "Chưa có mã xuất kho");
+                if (cbMaKhoHangXk.Text == "")
+                    errorProvider1.SetError(cbMaKhoHangXk, "Chưa có mã kho hàng");
+                if (cbMaNhanVienXk.Text == "")
+                    errorProvider1.SetError(cbMaNhanVienXk, "Chưa có mã nhân viên");
+                if (cbMaQuayXK.Text == "")
+                    errorProvider1.SetError(cbMaQuayXK, "Chưa có mã quầy");
+                MessageBox.Show("Phải điề đầy đủ thông tin!");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMaXk.Text;
+                string makh = cbMaKhoHangXk.Text;
+                string manv = cbMaNhanVienXk.Text;
+                string maquay = cbMaQuayXK.Text;
+                DateTime ngaylap = (DateTime)Convert.ToDateTime(dtpNgayLapXk.Value.ToString("MM/dd/yyyy"));
+                if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (XuatKhoController.Instance.InsertXuatKho(ma,makh,manv,maquay,ngaylap))
+                    {
+                        MessageBox.Show("Thêm thành công");
+                        ViewKhoHang();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
         }
-
+#endregion
         private void btnUpdate_XK_Click(object sender, EventArgs e)
         {
 
@@ -335,19 +306,124 @@ namespace bai6quanlysieuthi.Views
             rtbDiaChiKho.Text = dgvKhoHang.CurrentRow.Cells[2].Value.ToString();
         }
         #endregion
+#region thêm  kho hàng
         private void btnInsert_KH_Click(object sender, EventArgs e)
         {
+            if (txtMaKho.Text == "" || txtTenKho.Text == "" || rtbDiaChiKho.Text == "")
+            {
+                if (txtMaKho.Text == "")
+                    errorProvider1.SetError(txtMaKho, "Chưa có mã kho");
+                if (txtTenKho.Text == "")
+                    errorProvider1.SetError(txtTenKho, "Chưa có tên kho");
+                if (rtbDiaChiKho.Text == "")
+                    errorProvider1.SetError(rtbDiaChiKho, "Chưa có địa chỉ");
+                MessageBox.Show("Phải điền thông tin đầy đủ!");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMaKho.Text;
+                string ten = txtTenKho.Text;
+                string diachi = rtbDiaChiKho.Text;
 
+                if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (KhoHangController.Instance.InsertKhoHang(ma, ten, diachi))
+                    {
+                        MessageBox.Show("Thêm thành công");
+                        ViewKhoHang();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
         }
-
+        #endregion
+#region sửa kho hàng
         private void btnUpdate_KH_Click(object sender, EventArgs e)
         {
-
+            if (txtTenKho.Text == "" || rtbDiaChiKho.Text == "")
+            {
+                if (txtTenKho.Text == "")
+                    errorProvider1.SetError(txtTenKho, "Chưa có tên kho");
+                if (rtbDiaChiKho.Text == "")
+                    errorProvider1.SetError(rtbDiaChiKho, "Chưa có địa chỉ");
+                MessageBox.Show("Phải điền thông tin sửa!");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMaKho.Text;
+                string ten = txtTenKho.Text;
+                string diachi = rtbDiaChiKho.Text;
+                    if (MessageBox.Show("Bạn có muốn sửa hay không", "Sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        if (KhoHangController.Instance.UpdateKhoHang(ma, ten, diachi))
+                        {
+                            MessageBox.Show("Sửa thành công");
+                            ViewKhoHang();
+                        }
+                    }
+                else
+                {
+                    MessageBox.Show("Không thành công!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
         }
-
+#endregion
         private void btnDelete_KH_Click(object sender, EventArgs e)
         {
-
+            if (txtMaKho.Text == "")
+            {
+                errorProvider1.SetError(txtMaKho, "Chưa có mã kho cần xóa");
+                MessageBox.Show("Phải có mã kho cần xóa");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMaKho.Text;
+                    if (MessageBox.Show("Bạn có muốn xóa hay không", "Sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        if (KhoHangController.Instance.DeleteKhoHang(ma))
+                        {
+                            MessageBox.Show("Xóa thành công");
+                            ViewKhoHang();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thành công");
+                    }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
         }
         #endregion
 
@@ -375,19 +451,124 @@ namespace bai6quanlysieuthi.Views
             rtbViTriQh.Text = dgvQuayHang.CurrentRow.Cells[2].Value.ToString();
         }
         #endregion
+#region thêm quầy hàng
         private void btnInsert_QH_Click(object sender, EventArgs e)
         {
+            if (txtMaQuayH.Text == "" || txtTenQuayH.Text == "" || rtbViTriQh.Text == "")
+            {
+                if (txtMaQuayH.Text == "")
+                    errorProvider1.SetError(txtMaQuayH, "Chưa có mã quầy");
+                if (txtTenQuayH.Text == "")
+                    errorProvider1.SetError(txtTenQuayH, "Chưa có tên quầy");
+                if (rtbViTriQh.Text == "")
+                    errorProvider1.SetError(rtbViTriQh, "Chưa có địa chỉ");
+                MessageBox.Show("Phải điền thông tin đầy đủ!");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMaQuayH.Text;
+                string ten = txtTenQuayH.Text;
+                string vitri= rtbViTriQh.Text;
 
+                if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (QuayHangController.Instance.InsertQuayHang(ma, ten, vitri))
+                    {
+                        MessageBox.Show("Thêm thành công");
+                        ViewQuayHang();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
         }
-
+#endregion
         private void btnUpdate_QH_Click(object sender, EventArgs e)
         {
+            if (txtTenQuayH.Text == "" || rtbViTriQh.Text == "")
+            {
+                if (txtTenQuayH.Text == "")
+                    errorProvider1.SetError(txtTenQuayH, "Chưa có tên quầy");
+                if (rtbViTriQh.Text == "")
+                    errorProvider1.SetError(rtbViTriQh, "Chưa có địa chỉ");
+                MessageBox.Show("Phải điền thông tin đầy đủ!");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMaQuayH.Text;
+                string ten = txtTenQuayH.Text;
+                string vitri = rtbViTriQh.Text;
 
+                if (MessageBox.Show("Bạn có muốn sửa hay không", "Sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (QuayHangController.Instance.UpdateQuayHang(ma, ten, vitri))
+                    {
+                        MessageBox.Show("Sửa thành công");
+                        ViewQuayHang();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
         }
 
         private void btnDelete_QH_Click(object sender, EventArgs e)
         {
-
+            if (txtMaQuayH.Text == "")
+            {
+                errorProvider1.SetError(txtMaQuayH, "Chưa có mã cần xóa");
+                MessageBox.Show("Phải nhập vào mã cần xóa");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMaQuayH.Text;
+                if (MessageBox.Show("Bạn có muốn xóa hay không", "xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (QuayHangController.Instance.DeleteQuayHang(ma))
+                    {
+                        MessageBox.Show("Sửa thành công");
+                        ViewQuayHang();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
         }
 #endregion
 
@@ -398,73 +579,50 @@ namespace bai6quanlysieuthi.Views
 
         private void btnSearch_KQ_Click(object sender, EventArgs e)
         {
-
+            if(cbSearch.Text==@"Quầy hàng")
+            {
+                if (txtMaQuayH.Text == "" && txtTenQuayH.Text == "")
+                {
+                    if (txtMaQuayH.Text == "")
+                        errorProvider1.SetError(txtMaQuayH, "Chưa nhập mã cần tìm");
+                    if (txtTenQuayH.Text == "")
+                        errorProvider1.SetError(txtTenQuayH, "Chưa nhập tên cần tìm");
+                    MessageBox.Show("Phải nhập mã hoặc tên cần tìm");
+                }
+                else
+                {
+                    errorProvider1.Clear();
+                }
+                string ma = txtMaQuayH.Text;
+                string ten = txtTenQuayH.Text;
+                if (txtMaQuayH.Text != "" || txtTenQuayH.Text != "")
+                {
+                    dgvQuayHang.DataSource = QuayHangController.Instance.SearchQuayHang(ma, ten);
+                }
+            }
+            else if(cbSearch.Text==@"Kho hàng")
+            {
+                if (txtMaKho.Text == "" && txtTenKho.Text == "")
+                {
+                    if (txtMaKho.Text == "")
+                        errorProvider1.SetError(txtMaKho, "Chưa nhập mã cần tìm");
+                    if (txtTenKho.Text == "")
+                        errorProvider1.SetError(txtTenKho, "Chưa nhập tên cần tìm");
+                    MessageBox.Show("Phải nhập vào mã hoặc tên cần tìm");
+                    return;
+                }
+                else
+                {
+                    errorProvider1.Clear();
+                }
+                string ma = txtMaKho.Text;
+                string ten = txtTenKho.Text;
+                if (txtMaKho.Text != "" || txtTenKho.Text != "")
+                {
+                    dgvKhoHang.DataSource = KhoHangController.Instance.SearchKhoHang(ma, ten);
+                }
+            }
         }
-
-        #endregion
-
-        #region kiểm kê
-#region View phiếu kiểm kê
-        private void btnView_KK_Click(object sender, EventArgs e)
-        {
-            errorProvider1.Clear();
-            ViewKiemKe();
-        }
-        void ViewKiemKe()
-        {
-            dgvKiemKe.DataSource = KiemKeController.Instance.XemKiemKe();
-            dgvKiemKe.Columns["ma"].HeaderText = @"Mã kiểm kê";
-            dgvKiemKe.Columns["ma"].Width = 45;
-            dgvKiemKe.Columns["ngaylap"].HeaderText = @"Ngày lập";
-            dgvKiemKe.Columns["ngaylap"].Width = 80;
-            dgvKiemKe.Columns["mamathang"].HeaderText = @"Mã mặt hàng";
-            dgvKiemKe.Columns["mamathang"].Width = 50;
-            dgvKiemKe.Columns["soluong"].HeaderText = @"Số lượng";
-            dgvKiemKe.Columns["soluong"].Width = 50;
-            dgvKiemKe.Columns["makhohang"].HeaderText = @"Mã kho hàng";
-            dgvKiemKe.Columns["makhohang"].Width = 50;
-            dgvKiemKe.Columns["manhanvien"].HeaderText = @"Mã nhân viên";
-
-        }
-        private void dgvKiemKe_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtMaKK.Text = dgvKiemKe.CurrentRow.Cells[0].Value.ToString();
-            dtpNgayLapKK.Text = dgvKiemKe.CurrentRow.Cells[1].Value.ToString();
-            cbMaMatHangKK.Text = dgvKiemKe.CurrentRow.Cells[2].Value.ToString();
-            txtSoLuongKK.Text = dgvKiemKe.CurrentRow.Cells[3].Value.ToString();
-            cbMaNhanVienKK.Text = dgvKiemKe.CurrentRow.Cells[4].Value.ToString();
-            cbMaKhoHangKK.Text = dgvKiemKe.CurrentRow.Cells[5].Value.ToString();
-        }
-        #endregion
-        private void btnInsert_KK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUpdate_KK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_KK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnExit_KK_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnSearch_KK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
-
 
         #endregion
 
