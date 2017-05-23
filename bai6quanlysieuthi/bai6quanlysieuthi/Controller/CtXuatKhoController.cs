@@ -37,16 +37,25 @@ namespace bai6quanlysieuthi.Controller
             }
             return list;
         }
-        // thêm chi tiết phiếu xuất
-        //public List<chitietphieuxuat> InsertCtXuat(string maxuat,string mamathang,int sl)
-        //{
-        //    string query =string.Format("insert chitietphieuxuat(maxuat,mamathang,sl)")
-        //}
 
+        // thêm chi tiết phiếu xuất
+        public bool InsertCtXuat(string maxuat, string mamathang, int sl)
+        {
+            string query = string.Format("exec proc_chitietxuat N'{0}',N'{1}',{2}",maxuat,mamathang,sl);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+
+
+        // sửa chi tiết phiếu xuất
+        public bool UpdateCtXuat(int stt,string maxuat, string mamathang, int sl)
+        {
+            string query = string.Format("exec proc_dechitietxuat {0},N'{1}',N'{2}',{3}", stt, maxuat, mamathang, sl);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
         // xóa chi tiết phiếu xuất
         public bool DeleteCtXuat(int stt)
         {
-            string query = string.Format("delete chitietphieuxuat a where a.stt={0}", stt);
+            string query = string.Format("exec proc_dechitietxuat {0}", stt);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
         // tìm kiếm chi tiết phiếu xuất

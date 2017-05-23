@@ -40,13 +40,13 @@ namespace bai6quanlysieuthi.Controller
         //  thêm xuất kho
         public bool InsertXuatKho(string ma, string makh, string manv, string maquay, DateTime ngayxuat)
         {
-            string query = string.Format("insert phieuxuatkho(ma,makhachhang,manhanvien,maquay,ngayxuat) values(N'{0}',N'{1}',N'{2}',N'{3}',{4})", ma, makh, manv, maquay, ngayxuat);
+            string query = string.Format("insert phieuxuatkho(ma,makhohang,manhanvien,maquay,ngayxuat) values(N'{0}',N'{1}',N'{2}',N'{3}',N'{4}')", ma, makh, manv, maquay, ngayxuat);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
         // sửa xuất kho
         public bool UpdateXuatKho(string ma, string makh, string manv, string maquay, DateTime ngayxuat)
         {
-            string query = string.Format("update phieuxuatkho set makhachhang=N'{0}',manhanvien=N'{1}',maquay=N'{2}',ngayxuat=N'{3}' where ma=N'{4}'", makh, manv, maquay, ngayxuat, ma);
+            string query = string.Format("update phieuxuatkho set makhohang=N'{0}',manhanvien=N'{1}',maquay=N'{2}',ngayxuat=N'{3}' where ma=N'{4}'", makh, manv, maquay, ngayxuat, ma);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
         // xóa xuất kho

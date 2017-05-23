@@ -236,7 +236,89 @@ namespace bai6quanlysieuthi.Views
                     if (XuatKhoController.Instance.InsertXuatKho(ma,makh,manv,maquay,ngaylap))
                     {
                         MessageBox.Show("Thêm thành công");
-                        ViewKhoHang();
+                        ViewXuatKho();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
+        }
+        #endregion
+#region sửa phiếu xuất kho
+        private void btnUpdate_XK_Click(object sender, EventArgs e)
+        {
+            if (txtMaXk.Text == "" || cbMaKhoHangXk.Text == "" || cbMaNhanVienXk.Text == "" || cbMaQuayXK.Text == "")
+            {
+                if (txtMaXk.Text == "")
+                    errorProvider1.SetError(txtMaXk, "Chưa có mã xuất kho");
+                if (cbMaKhoHangXk.Text == "")
+                    errorProvider1.SetError(cbMaKhoHangXk, "Chưa có mã kho hàng");
+                if (cbMaNhanVienXk.Text == "")
+                    errorProvider1.SetError(cbMaNhanVienXk, "Chưa có mã nhân viên");
+                if (cbMaQuayXK.Text == "")
+                    errorProvider1.SetError(cbMaQuayXK, "Chưa có mã quầy");
+                MessageBox.Show("Phải điề đầy đủ thông tin!");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMaXk.Text;
+                string makh = cbMaKhoHangXk.Text;
+                string manv = cbMaNhanVienXk.Text;
+                string maquay = cbMaQuayXK.Text;
+                DateTime ngaylap = (DateTime)Convert.ToDateTime(dtpNgayLapXk.Value.ToString("MM/dd/yyyy"));
+                if (MessageBox.Show("Bạn có muốn sửa hay không", "Sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (XuatKhoController.Instance.UpdateXuatKho(ma, makh, manv, maquay, ngaylap))
+                    {
+                        MessageBox.Show("Sửa thành công");
+                        ViewXuatKho();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
+        }
+        #endregion
+#region xóa phiếu xuất kho
+        private void btnDelete_XK_Click(object sender, EventArgs e)
+        {
+            if (txtMaXk.Text == "")
+            {
+                errorProvider1.SetError(txtMaXk, "Chưa có mã cần xóa");
+                MessageBox.Show("Bạn phải có mã cần xóa");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                if (MessageBox.Show("Bạn có muốn xóa hay không", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (XuatKhoController.Instance.DeleteXuatKho(txtMaXk.Text))
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        ViewXuatKho();
                     }
                 }
                 else
@@ -251,26 +333,36 @@ namespace bai6quanlysieuthi.Views
             }
         }
 #endregion
-        private void btnUpdate_XK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_XK_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnExit_XK_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+#region tìm kiếm phiếu xuất kho
         private void btnSearch_XK_Click(object sender, EventArgs e)
         {
-
+            if (txtMaXk.Text == "" && cbMaKhoHangXk.Text == "" && cbMaNhanVienXk.Text == "" && cbMaQuayXK.Text == "")
+            {
+                if (txtMaXk.Text == "")
+                    errorProvider1.SetError(txtMaXk, "Chưa có mã xuất cần tìm");
+                if (cbMaKhoHangXk.Text == "")
+                    errorProvider1.SetError(cbMaKhoHangXk, "Chưa có mã kho cần tìm");
+                if (cbMaNhanVienXk.Text == "")
+                    errorProvider1.SetError(cbMaNhanVienXk, "Chưa có mã nhân viên cần tìm");
+                if (cbMaQuayXK.Text == "")
+                    errorProvider1.SetError(cbMaQuayXK, "Chưa có mã quầy cần tìm");
+                MessageBox.Show("Phải có thông tin cần tìm");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            if (txtMaXk.Text != "" || cbMaKhoHangXk.Text != "" || cbMaNhanVienXk.Text != "" || cbMaQuayXK.Text != "")
+            {
+                dgvXK.DataSource = XuatKhoController.Instance.SearchXuatKho(txtMaXk.Text, cbMaKhoHangXk.Text, cbMaNhanVienXk.Text, cbMaQuayXK.Text);
+            }
         }
-
+#endregion
         private void btnDetail_XK_Click(object sender, EventArgs e)
         {
             ChiTiet_XuatKho f = new ChiTiet_XuatKho();
