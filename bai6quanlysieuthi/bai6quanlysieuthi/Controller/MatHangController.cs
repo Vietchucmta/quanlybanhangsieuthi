@@ -28,7 +28,7 @@ namespace bai6quanlysieuthi.Controller
         public List<mathang> XemMatHang()
         {
             List<mathang> list = new List<mathang>();
-            string query = "select ma,ten,loaimathang,donvitinh,maquay,manhacc from mathang";
+            string query = "select ma,ten,loaimathang,donvitinh,maquay,manhacc,gia from mathang";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
@@ -56,10 +56,10 @@ namespace bai6quanlysieuthi.Controller
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
         // tìm mặt hàng
-        public List<mathang> SearchMatHang(string ma, string ten, string loaimathang)
+        public List<mathang> SearchMatHang(string ma, string ten, string loaimathang,string maquay,string mancc)
         {
             List<mathang> list = new List<mathang>();
-            string query = string.Format("select * from mathang mh where mh.ma like N'%{0}%' and mh.ten like N'%{1}%' and mh.loaimathang like N'%{2}%' ",ma, ten,loaimathang);
+            string query = string.Format("select * from mathang mh where mh.ma like N'%{0}%' and mh.ten like N'%{1}%' and mh.loaimathang like N'%{2}%' and mh.maquay like N'%{3}%' and mh.manhacc like N'%{4}%'",ma, ten,loaimathang,maquay,mancc);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow i in data.Rows)
             {

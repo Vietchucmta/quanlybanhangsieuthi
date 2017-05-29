@@ -49,3 +49,6 @@ E:\3tailieu\thuctapnhom\quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieu
 E:\3tailieu\thuctapnhom\quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.csproj.GenerateResource.Cache
 E:\3tailieu\thuctapnhom\quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.exe
 E:\3tailieu\thuctapnhom\quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.pdb
+C:\Users\Dell\Desktop\Quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\bin\Debug\bai6quanlysieuthi.exe.config
+C:\Users\Dell\Desktop\Quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.exe
+C:\Users\Dell\Desktop\Quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.pdb
