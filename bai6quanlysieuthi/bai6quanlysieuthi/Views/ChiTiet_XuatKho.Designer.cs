@@ -40,10 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnSearch_CTXK = new System.Windows.Forms.Button();
-            this.txtSearchCTPX = new System.Windows.Forms.TextBox();
-            this.cbSearchCTPX = new System.Windows.Forms.ComboBox();
             this.dgvCtXuatKho = new System.Windows.Forms.DataGridView();
             this.btnExit_CTXK = new System.Windows.Forms.Button();
             this.btnDelete_CTXK = new System.Windows.Forms.Button();
@@ -52,7 +49,6 @@
             this.btnView_CTXK = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCtXuatKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -162,61 +158,30 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "STT";
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnSearch_CTXK);
-            this.panel1.Controls.Add(this.txtSearchCTPX);
-            this.panel1.Controls.Add(this.cbSearchCTPX);
-            this.panel1.Location = new System.Drawing.Point(64, 148);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(571, 46);
-            this.panel1.TabIndex = 39;
-            // 
             // btnSearch_CTXK
             // 
             this.btnSearch_CTXK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch_CTXK.Location = new System.Drawing.Point(404, 8);
+            this.btnSearch_CTXK.Location = new System.Drawing.Point(655, 358);
             this.btnSearch_CTXK.Name = "btnSearch_CTXK";
-            this.btnSearch_CTXK.Size = new System.Drawing.Size(111, 28);
+            this.btnSearch_CTXK.Size = new System.Drawing.Size(75, 75);
             this.btnSearch_CTXK.TabIndex = 11;
             this.btnSearch_CTXK.Text = "Tìm kiếm";
             this.btnSearch_CTXK.UseVisualStyleBackColor = true;
             this.btnSearch_CTXK.Click += new System.EventHandler(this.btnSearch_CTXK_Click);
             // 
-            // txtSearchCTPX
-            // 
-            this.txtSearchCTPX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchCTPX.Location = new System.Drawing.Point(240, 8);
-            this.txtSearchCTPX.Name = "txtSearchCTPX";
-            this.txtSearchCTPX.Size = new System.Drawing.Size(101, 26);
-            this.txtSearchCTPX.TabIndex = 10;
-            // 
-            // cbSearchCTPX
-            // 
-            this.cbSearchCTPX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSearchCTPX.FormattingEnabled = true;
-            this.cbSearchCTPX.Items.AddRange(new object[] {
-            "Mã hóa đơn",
-            "Mã mặt hàng"});
-            this.cbSearchCTPX.Location = new System.Drawing.Point(50, 8);
-            this.cbSearchCTPX.Name = "cbSearchCTPX";
-            this.cbSearchCTPX.Size = new System.Drawing.Size(122, 28);
-            this.cbSearchCTPX.TabIndex = 10;
-            // 
             // dgvCtXuatKho
             // 
             this.dgvCtXuatKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCtXuatKho.Location = new System.Drawing.Point(64, 200);
+            this.dgvCtXuatKho.Location = new System.Drawing.Point(64, 148);
             this.dgvCtXuatKho.Name = "dgvCtXuatKho";
-            this.dgvCtXuatKho.Size = new System.Drawing.Size(571, 233);
+            this.dgvCtXuatKho.Size = new System.Drawing.Size(571, 285);
             this.dgvCtXuatKho.TabIndex = 38;
             this.dgvCtXuatKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCtXuatKho_CellClick);
             // 
             // btnExit_CTXK
             // 
             this.btnExit_CTXK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit_CTXK.Location = new System.Drawing.Point(707, 358);
+            this.btnExit_CTXK.Location = new System.Drawing.Point(746, 358);
             this.btnExit_CTXK.Name = "btnExit_CTXK";
             this.btnExit_CTXK.Size = new System.Drawing.Size(75, 75);
             this.btnExit_CTXK.TabIndex = 37;
@@ -277,8 +242,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.btnSearch_CTXK);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvCtXuatKho);
             this.Controls.Add(this.btnExit_CTXK);
             this.Controls.Add(this.btnDelete_CTXK);
@@ -289,8 +254,6 @@
             this.Text = "Chi tiết phiếu xuất";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCtXuatKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -310,10 +273,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSearch_CTXK;
-        private System.Windows.Forms.TextBox txtSearchCTPX;
-        private System.Windows.Forms.ComboBox cbSearchCTPX;
         private System.Windows.Forms.DataGridView dgvCtXuatKho;
         private System.Windows.Forms.Button btnExit_CTXK;
         private System.Windows.Forms.Button btnDelete_CTXK;

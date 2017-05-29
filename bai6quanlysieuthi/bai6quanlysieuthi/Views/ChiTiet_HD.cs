@@ -131,11 +131,11 @@ namespace bai6quanlysieuthi.Views
         {
             errorProvider1.Clear();
             int stt = (int)Convert.ToInt32(txtSTT.Text);
-            if (CtHoaDonController.Instance.DeleteCTHD(stt))
-            {
+            
                 if (MessageBox.Show("Bạn có muốn xóa hay không", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-
+                if (CtHoaDonController.Instance.DeleteCTHD(stt))
+                {
                     MessageBox.Show("Xóa thành công!");
                     ViewCtHoaDon();
                 }
