@@ -128,7 +128,6 @@ namespace bai6quanlysieuthi.Views
         private void btnViewHD_Click(object sender, EventArgs e)
         {
             errorProvider1.Clear();
-            ViewKhachMH();
             ViewHoaDon();
         }
         // xem hóa đơn
@@ -145,18 +144,6 @@ namespace bai6quanlysieuthi.Views
             dgvHoaDon.Columns["tonggiatri"].Width = 80;
             dgvHoaDon.Columns["thanhtien"].HeaderText = @"Thành tiền";
             dgvHoaDon.Columns["thanhtien"].Width = 80;
-        }
-
-        // xem khách mua hàng
-        void ViewKhachMH()
-        {
-            dgvKMH.DataSource = KMHController.Instance.XemKhachMH();
-            dgvKMH.Columns["stt"].HeaderText = @"STT";
-            dgvKMH.Columns["stt"].Width = 45;
-            dgvKMH.Columns["makhachhang"].HeaderText = @"Mã khách hàng";
-            dgvKMH.Columns["makhachhang"].Width = 100;
-            dgvKMH.Columns["mahoadon"].HeaderText = @"Mã hóa đơn";
-            dgvKMH.Columns["mahoadon"].Width = 100;
         }
 
         private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)

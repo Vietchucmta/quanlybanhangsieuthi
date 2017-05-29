@@ -58,8 +58,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvKMH = new System.Windows.Forms.DataGridView();
             this.btnExitHD = new System.Windows.Forms.Button();
             this.btnDeleteHD = new System.Windows.Forms.Button();
             this.btnUpdateHD = new System.Windows.Forms.Button();
@@ -90,8 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvKh)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKMH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -387,7 +383,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.btnExitHD);
             this.tabPage2.Controls.Add(this.btnDeleteHD);
             this.tabPage2.Controls.Add(this.btnUpdateHD);
@@ -403,24 +398,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Hóa đơn";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dgvKMH);
-            this.groupBox3.Location = new System.Drawing.Point(569, 7);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(290, 176);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Khách mua hàng";
-            // 
-            // dgvKMH
-            // 
-            this.dgvKMH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKMH.Location = new System.Drawing.Point(8, 22);
-            this.dgvKMH.Name = "dgvKMH";
-            this.dgvKMH.Size = new System.Drawing.Size(276, 154);
-            this.dgvKMH.TabIndex = 0;
             // 
             // btnExitHD
             // 
@@ -495,12 +472,12 @@
             this.panel2.Controls.Add(this.btnSearchHD);
             this.panel2.Location = new System.Drawing.Point(20, 141);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(543, 42);
+            this.panel2.Size = new System.Drawing.Size(651, 42);
             this.panel2.TabIndex = 1;
             // 
             // btnChiTietHD
             // 
-            this.btnChiTietHD.Location = new System.Drawing.Point(406, 6);
+            this.btnChiTietHD.Location = new System.Drawing.Point(514, 7);
             this.btnChiTietHD.Name = "btnChiTietHD";
             this.btnChiTietHD.Size = new System.Drawing.Size(120, 30);
             this.btnChiTietHD.TabIndex = 1;
@@ -510,7 +487,7 @@
             // 
             // txtSearchHD
             // 
-            this.txtSearchHD.Location = new System.Drawing.Point(150, 8);
+            this.txtSearchHD.Location = new System.Drawing.Point(192, 5);
             this.txtSearchHD.Name = "txtSearchHD";
             this.txtSearchHD.Size = new System.Drawing.Size(100, 26);
             this.txtSearchHD.TabIndex = 26;
@@ -528,7 +505,7 @@
             // 
             // btnSearchHD
             // 
-            this.btnSearchHD.Location = new System.Drawing.Point(256, 4);
+            this.btnSearchHD.Location = new System.Drawing.Point(364, 3);
             this.btnSearchHD.Name = "btnSearchHD";
             this.btnSearchHD.Size = new System.Drawing.Size(90, 30);
             this.btnSearchHD.TabIndex = 0;
@@ -550,7 +527,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(19, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(544, 124);
+            this.groupBox2.Size = new System.Drawing.Size(834, 124);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hóa đơn";
@@ -564,14 +541,14 @@
             // 
             // txtThanhTien
             // 
-            this.txtThanhTien.Location = new System.Drawing.Point(366, 54);
+            this.txtThanhTien.Location = new System.Drawing.Point(592, 54);
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.Size = new System.Drawing.Size(161, 26);
             this.txtThanhTien.TabIndex = 24;
             // 
             // txtTongGiaTri
             // 
-            this.txtTongGiaTri.Location = new System.Drawing.Point(366, 22);
+            this.txtTongGiaTri.Location = new System.Drawing.Point(592, 22);
             this.txtTongGiaTri.Name = "txtTongGiaTri";
             this.txtTongGiaTri.Size = new System.Drawing.Size(161, 26);
             this.txtTongGiaTri.TabIndex = 23;
@@ -593,7 +570,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(259, 57);
+            this.label10.Location = new System.Drawing.Point(485, 57);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(84, 20);
             this.label10.TabIndex = 19;
@@ -602,7 +579,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(259, 25);
+            this.label7.Location = new System.Drawing.Point(485, 25);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 20);
             this.label7.TabIndex = 18;
@@ -659,8 +636,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKMH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -703,8 +678,6 @@
         private System.Windows.Forms.DataGridView dgvKh;
         private System.Windows.Forms.TextBox txtSearchKh;
         private System.Windows.Forms.ComboBox cmbSearchKh;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dgvKMH;
         private System.Windows.Forms.Button btnExitHD;
         private System.Windows.Forms.Button btnDeleteHD;
         private System.Windows.Forms.Button btnUpdateHD;
