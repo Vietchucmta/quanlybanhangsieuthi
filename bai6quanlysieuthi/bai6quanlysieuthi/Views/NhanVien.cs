@@ -89,35 +89,182 @@ namespace bai6quanlysieuthi.Views
             txtMatKhau.Text = dgvNhanVien.CurrentRow.Cells[7].Value.ToString();
         }
         #endregion
+
+#region thêm nhân viên
         private void btnInsert_NV_Click(object sender, EventArgs e)
         {
+            if (txtMa.Text == "" || txtTen.Text == "" || txtDiaChi.Text == "" || txtSoDienThoai.Text == "" || cbMaChucVu.Text == "" || txtTaiKhoan.Text == "" || txtMatKhau.Text == "")
+            {
+                if (txtMa.Text == "")
+                    errorProvider1.SetError(txtMa, "Chưa có dữ liệu");
+                if (txtTen.Text == "")
+                    errorProvider1.SetError(txtTen, "Chưa có dữ liệu");
+                if (txtDiaChi.Text == "")
+                    errorProvider1.SetError(txtDiaChi, "Chưa có dữ liệu");
+                if (txtSoDienThoai.Text == "")
+                    errorProvider1.SetError(txtSoDienThoai, "Chưa có dữ liệu");
+                if (cbMaChucVu.Text == "")
+                    errorProvider1.SetError(cbMaChucVu, "Chưa có dữ liệu");
+                if (txtTaiKhoan.Text == "")
+                    errorProvider1.SetError(txtTaiKhoan, "Chưa có dữ liệu");
+                if (txtMatKhau.Text == "")
+                    errorProvider1.SetError(txtMatKhau, "Chưa có dữ liệu");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMa.Text;
+                string ten = txtTen.Text;
+                string sdt = txtSoDienThoai.Text;
+                string mcv = cbMaChucVu.Text;
+                DateTime ngaysinh = (DateTime)Convert.ToDateTime(dtpNgaySinh.Value.ToString("MM/dd/yyyy"));
+                string diachi = txtDiaChi.Text;
+                string tk = txtTaiKhoan.Text;
+                string mk = txtMatKhau.Text;
+                if(txtMa.Text == "" || txtTen.Text == "" || txtDiaChi.Text == "" || txtSoDienThoai.Text == "" || cbMaChucVu.Text == "" || txtTaiKhoan.Text == "" || txtMatKhau.Text == "")
+                {
+                    MessageBox.Show("Phải điền đủ thông tin");
+                    return;
+                }
+
+                if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                        if (NhanVienController.Instance.InsertNhanVien(ma, ten, ngaysinh, diachi, sdt, mcv, tk, mk))
+                        {
+                            MessageBox.Show("Thêm thành công!");
+                            ViewNhanVien();
+                        }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công");
+                }
+             
+            }
+            catch {
+                MessageBox.Show("Lỗi thêm dữ liệu");
+                return;
+            }
 
         }
-
+        #endregion
+#region   sửa nhân viên
         private void btnUpdate_NV_Click(object sender, EventArgs e)
         {
-
+            if (txtMa.Text == "" || txtTen.Text == "" || txtDiaChi.Text == "" || txtSoDienThoai.Text == "" || cbMaChucVu.Text == "" || txtTaiKhoan.Text == "" || txtMatKhau.Text == "")
+            {
+                if (txtMa.Text == "")
+                    errorProvider1.SetError(txtMa, "Chưa có dữ liệu");
+                if (txtTen.Text == "")
+                    errorProvider1.SetError(txtTen, "Chưa có dữ liệu");
+                if (txtDiaChi.Text == "")
+                    errorProvider1.SetError(txtDiaChi, "Chưa có dữ liệu");
+                if (txtSoDienThoai.Text == "")
+                    errorProvider1.SetError(txtSoDienThoai, "Chưa có dữ liệu");
+                if (cbMaChucVu.Text == "")
+                    errorProvider1.SetError(cbMaChucVu, "Chưa có dữ liệu");
+                if (txtTaiKhoan.Text == "")
+                    errorProvider1.SetError(txtTaiKhoan, "Chưa có dữ liệu");
+                if (txtMatKhau.Text == "")
+                    errorProvider1.SetError(txtMatKhau, "Chưa có dữ liệu");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMa.Text;
+                string ten = txtTen.Text;
+                string sdt = txtSoDienThoai.Text;
+                string mcv = cbMaChucVu.Text;
+                DateTime ngaysinh = (DateTime)Convert.ToDateTime(dtpNgaySinh.Value.ToString("MM/dd/yyyy"));
+                string diachi = txtDiaChi.Text;
+                string tk = txtTaiKhoan.Text;
+                string mk = txtMatKhau.Text;
+                if (txtMa.Text == "" || txtTen.Text == "" || txtDiaChi.Text == "" || txtSoDienThoai.Text == "" || cbMaChucVu.Text == "" || txtTaiKhoan.Text == "" || txtMatKhau.Text == "")
+                {
+                    MessageBox.Show("Phải điền đủ thông tin");
+                    return;
+                }
+                
+                    if (MessageBox.Show("Bạn có muốn sửa hay không", "Sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                    if (NhanVienController.Instance.UpdateNhanVien(ma, ten, ngaysinh, diachi, sdt, mcv, tk, mk))
+                    {
+                        MessageBox.Show("Sửa thành công!");
+                        ViewNhanVien();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thành công");
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi sửa dữ liệu");
+                return;
+            }
         }
-
+        #endregion
+#region xóa nhân viên
         private void btnDelete_NV_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+            if (txtMa.Text == "")
+            {
+                errorProvider1.SetError(txtMa, "Nhập vào mã");
+                MessageBox.Show("Không có mã");
+                return;
+            }
+            string ma = txtMa.Text;
+            if (NhanVienController.Instance.DeleteNhanVien(ma))
+            {
+                if (MessageBox.Show("Bạn có muốn xóa hay không", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
 
+                    MessageBox.Show("Xóa thành công!");
+                    ViewNhanVien();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không thành công!");
+            }
         }
+#endregion
 
         private void btnExit_NV_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+#region
         private void btnSearch_NV_Click(object sender, EventArgs e)
         {
-
+            if(cbSearch.Text== @"Mã nhân viên")
+            {
+                if (txtSearch.Text !="")
+                {
+                    dgvNhanVien.DataSource = NhanVienController.Instance.SearchNhanVien(txtSearch.Text);
+                }
+            }
+            else if(cbSearch.Text== @"Số điện thoại")
+            {
+                if (txtSearch.Text!="")
+                {
+                    dgvNhanVien.DataSource = NhanVienController.Instance.SearchNhanVien1(txtSearch.Text);
+                }
+            }
         }
-
+#endregion
         #endregion
 
         #region phiếu giao ca
-#region View phiếu giao ca
+        #region View phiếu giao ca
         private void btnView_PGC_Click(object sender, EventArgs e)
         {
             errorProvider1.Clear();
@@ -147,24 +294,172 @@ namespace bai6quanlysieuthi.Views
             txtMaNhanVienGc.Text = dgvPhieuGC.CurrentRow.Cells[4].Value.ToString();
         }
         #endregion
+#region theem phiếu giao ca
         private void btnInsert_PGC_Click(object sender, EventArgs e)
         {
-
+            if(txtMaGC.Text==""||cbCaGc.Text==""|| txtMaNhanVienGc.Text == "" || txtMaQuayGC.Text == "")
+            {
+                if (txtMaGC.Text == "")
+                    errorProvider1.SetError(txtMaGC, "Chưa nhập mã giao ca");
+                if (cbCaGc.Text == "")
+                    errorProvider1.SetError(cbCaGc, "Chưa nhập ca");
+                if (txtMaQuayGC.Text == "")
+                    errorProvider1.SetError(txtMaQuayGC, "Chưa nhập mã quầy");
+                if (txtMaNhanVienGc.Text == "")
+                    errorProvider1.SetError(txtMaNhanVienGc, "Chưa nhập mã nhân viên");
+                MessageBox.Show("Nhập thông tin đầy đủ");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMaGC.Text;
+                DateTime ngay = (DateTime)Convert.ToDateTime(dtpNgayGC.Value.ToString("MM/dd/yyyy"));
+                int ca=0;
+                if(cbCaGc.Text==@"Ca 1")
+                {
+                    ca = 1;
+                }
+                else if(cbCaGc.Text==@"Ca 2")
+                {
+                    ca = 2;
+                }
+                else if(cbCaGc.Text==@"Ca 3")
+                {
+                    ca = 3;
+                }
+                string maquay = txtMaQuayGC.Text;
+                string manhanvien = txtMaNhanVienGc.Text;
+                if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (GiaoCaController.Instance.InsertGiaoCa(ma,ngay,ca,maquay,manhanvien))
+                    {
+                            MessageBox.Show("Thêm thành công!");
+                            ViewGiaoCa();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
         }
-
+        #endregion
+#region sửa phiếu giao ca
         private void btnUpdate_PGC_Click(object sender, EventArgs e)
         {
-
+            if (txtMaGC.Text == "" || cbCaGc.Text == "" || txtMaNhanVienGc.Text == "" || txtMaQuayGC.Text == "")
+            {
+                if (txtMaGC.Text == "")
+                    errorProvider1.SetError(txtMaGC, "Chưa nhập mã giao ca để sửa");
+                if (cbCaGc.Text == "")
+                    errorProvider1.SetError(cbCaGc, "Chưa nhập ca");
+                if (txtMaQuayGC.Text == "")
+                    errorProvider1.SetError(txtMaQuayGC, "Chưa nhập mã quầy");
+                if (txtMaNhanVienGc.Text == "")
+                    errorProvider1.SetError(txtMaNhanVienGc, "Chưa nhập mã nhân viên");
+                MessageBox.Show("Nhập thông tin đầy đủ");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string ma = txtMaGC.Text;
+                DateTime ngay = (DateTime)Convert.ToDateTime(dtpNgayGC.Value.ToString("MM/dd/yyyy"));
+                int ca = 0;
+                if (cbCaGc.Text == @"Ca 1")
+                {
+                    ca = 1;
+                }
+                else if (cbCaGc.Text == @"Ca 2")
+                {
+                    ca = 2;
+                }
+                else if (cbCaGc.Text == @"Ca 3")
+                {
+                    ca = 3;
+                }
+                string maquay = txtMaQuayGC.Text;
+                string manhanvien = txtMaNhanVienGc.Text;
+                if (MessageBox.Show("Bạn có muốn sửa hay không", "Sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (GiaoCaController.Instance.UpdateGiaoCa(ma, ngay, ca, maquay, manhanvien))
+                    {
+                        MessageBox.Show("Sửa thành công!");
+                        ViewGiaoCa();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
         }
-
+        #endregion
+#region xóa phiếu giao ca
         private void btnDelete_PGC_Click(object sender, EventArgs e)
         {
-
+            if (txtMaGC.Text == "")
+            {
+                errorProvider1.SetError(txtMaGC, "Chưa có mã cần xóa");
+                MessageBox.Show("Phải nhập vào mã cần xóa");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            if (MessageBox.Show("Bạn có muốn xóa hay không", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                if (GiaoCaController.Instance.DeleteGiaoCa(txtMaGC.Text))
+                {
+                    MessageBox.Show("Xóa thành công!");
+                    ViewGiaoCa();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không thành công");
+            }
         }
-
+#endregion
         private void btnSearch_PGC_Click(object sender, EventArgs e)
         {
-
+            if(txtMaGC.Text==""&& txtMaQuayGC.Text == "" && txtMaNhanVienGc.Text == "")
+            {
+                if (txtMaGC.Text == "")
+                    errorProvider1.SetError(txtMaGC, "Chưa có mã cần tìm");
+                if (txtMaQuayGC.Text == "")
+                    errorProvider1.SetError(txtMaQuayGC, "Chưa có mã quầy cần tìm");
+                if (txtMaNhanVienGc.Text == "")
+                    errorProvider1.SetError(txtMaNhanVienGc, "Chưa có mã nhân viên cần tìm");
+                MessageBox.Show("Nhập vào thông tin cần tìm");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            string ma = txtMaGC.Text;
+            string maquay = txtMaQuayGC.Text;
+            string manhanvien = txtMaNhanVienGc.Text;
+            dgvPhieuGC.DataSource = GiaoCaController.Instance.SearchGiaoCa(ma, maquay, manhanvien);
         }
 
         private void btnExit_PGC_Click(object sender, EventArgs e)
@@ -203,17 +498,115 @@ namespace bai6quanlysieuthi.Views
         #endregion
         private void btnInsert_CTPGC_Click(object sender, EventArgs e)
         {
-
+            if (txtMaGiaoCaCgc.Text == "" || txtMaMatHangCgc.Text == "" || txtSoLuongCgc.Text == "")
+            {
+                if (txtMaGiaoCaCgc.Text == "")
+                    errorProvider1.SetError(txtMaGiaoCaCgc, "Chưa nhập mã giao ca");
+                if (txtMaMatHangCgc.Text == "")
+                    errorProvider1.SetError(txtMaMatHangCgc, "Chưa nhập mã mặt hàng");
+                if (txtSoLuongCgc.Text == "")
+                    errorProvider1.SetError(txtSoLuongCgc, "Chưa nhập số lượng mặt hàng");
+                MessageBox.Show("Nhập thông tin đầy đủ");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                string maquay = txtMaGiaoCaCgc.Text;
+                string mamathang = txtMaMatHangCgc.Text;
+                int sl = (int)Convert.ToInt32(txtSoLuongCgc.Text);
+                if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (CTGiaoCaController.Instance.InsertCtGiaoCa(maquay,mamathang,sl))
+                    {
+                        MessageBox.Show("Thêm thành công!");
+                        ViewGiaoCa();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
         }
-
+#region sửa chi tiết giao ca
         private void btnUpdate_CTPGC_Click(object sender, EventArgs e)
         {
-
+            if (txtMaGiaoCaCgc.Text == "" || txtMaMatHangCgc.Text == "" || txtSoLuongCgc.Text == "")
+            {
+                if (txtMaGiaoCaCgc.Text == "")
+                    errorProvider1.SetError(txtMaGiaoCaCgc, "Chưa nhập mã giao ca");
+                if (txtMaMatHangCgc.Text == "")
+                    errorProvider1.SetError(txtMaMatHangCgc, "Chưa nhập mã mặt hàng");
+                if (txtSoLuongCgc.Text == "")
+                    errorProvider1.SetError(txtSoLuongCgc, "Chưa nhập số lượng mặt hàng");
+                MessageBox.Show("Nhập thông tin đầy đủ");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            try
+            {
+                int stt = (int)Convert.ToInt32(txtSTTCgc.Text);
+                string maquay = txtMaGiaoCaCgc.Text;
+                string mamathang = txtMaMatHangCgc.Text;
+                int sl = (int)Convert.ToInt32(txtSoLuongCgc.Text);
+                if (MessageBox.Show("Bạn có muốn sửa hay không", "sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (CTGiaoCaController.Instance.UpdateCtGiaoCa(stt,maquay, mamathang, sl))
+                    {
+                        MessageBox.Show("Sửa thành công!");
+                        ViewGiaoCa();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thành công");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi dữ liệu");
+                return;
+            }
         }
-
+#endregion
         private void btnDelete_CTPGC_Click(object sender, EventArgs e)
         {
-
+            if (txtSTTCgc.Text == "")
+            {
+                errorProvider1.SetError(txtSTTCgc, "Nhập stt cần xóa");
+                MessageBox.Show("Nhập vào số thứ tự cần xóa");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            int stt = 0;
+            stt = (int)Convert.ToInt32(txtSTTCgc.Text);
+            if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                if (CTGiaoCaController.Instance.DeleteCtGiaoCa(stt))
+                {
+                    MessageBox.Show("Thêm thành công!");
+                    ViewGiaoCa();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không thành công");
+            }
         }
 
         private void btnExit_CTPGC_Click(object sender, EventArgs e)
@@ -223,7 +616,20 @@ namespace bai6quanlysieuthi.Views
 
         private void btnSearch_CTPGC_Click(object sender, EventArgs e)
         {
-
+            if (txtMaGiaoCaCgc.Text == "" && txtMaMatHangCgc.Text == "")
+            {
+                if (txtMaGiaoCaCgc.Text == "")
+                    errorProvider1.SetError(txtMaGiaoCaCgc, "Nhập mã giao ca cần tìm");
+                if (txtMaMatHangCgc.Text == "")
+                    errorProvider1.SetError(txtMaMatHangCgc, "Nhập mã mặt hàng cần tìm");
+                MessageBox.Show("Nhập thông tin cần tìm");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+            dgvCtGiaoCa.DataSource = CTGiaoCaController.Instance.SearchCtGiaoCa(txtMaGiaoCaCgc.Text, txtMaMatHangCgc.Text);
         }
 
 

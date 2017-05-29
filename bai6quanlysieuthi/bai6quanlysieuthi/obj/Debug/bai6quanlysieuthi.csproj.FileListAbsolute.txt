@@ -55,3 +55,6 @@ C:\Users\Dell\Desktop\Quanlybanhangsieuthi\quanlybanhangsieuthi\bai6quanlysieuth
 C:\Users\Chien\Desktop\Quanlisieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\bin\Debug\bai6quanlysieuthi.exe.config
 C:\Users\Chien\Desktop\Quanlisieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.exe
 C:\Users\Chien\Desktop\Quanlisieuthi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.pdb
+C:\Users\maitr\Desktop\QuanLiBanHangSieuThi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\bin\Debug\bai6quanlysieuthi.exe.config
+C:\Users\maitr\Desktop\QuanLiBanHangSieuThi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.exe
+C:\Users\maitr\Desktop\QuanLiBanHangSieuThi\quanlybanhangsieuthi\bai6quanlysieuthi\bai6quanlysieuthi\obj\Debug\bai6quanlysieuthi.pdb

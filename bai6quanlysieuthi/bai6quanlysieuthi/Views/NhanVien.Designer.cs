@@ -59,9 +59,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.cbSearchGc = new System.Windows.Forms.ComboBox();
-            this.txtSearchGc = new System.Windows.Forms.TextBox();
             this.btnSearch_PGC = new System.Windows.Forms.Button();
             this.btnExit_PGC = new System.Windows.Forms.Button();
             this.btnDelete_PGC = new System.Windows.Forms.Button();
@@ -112,7 +109,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuGC)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -169,7 +165,6 @@
             this.cbSearch.FormattingEnabled = true;
             this.cbSearch.Items.AddRange(new object[] {
             "Mã nhân viên",
-            "Tên nhân viên",
             "Số điện thoại"});
             this.cbSearch.Location = new System.Drawing.Point(36, 8);
             this.cbSearch.Name = "cbSearch";
@@ -254,7 +249,7 @@
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhanVien.Location = new System.Drawing.Point(43, 234);
             this.dgvNhanVien.Name = "dgvNhanVien";
-            this.dgvNhanVien.Size = new System.Drawing.Size(618, 195);
+            this.dgvNhanVien.Size = new System.Drawing.Size(618, 205);
             this.dgvNhanVien.TabIndex = 9;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
@@ -287,7 +282,6 @@
             this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMatKhau.Location = new System.Drawing.Point(480, 129);
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(274, 26);
             this.txtMatKhau.TabIndex = 26;
             // 
@@ -420,8 +414,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.btnExit_PGC);
+            this.tabPage2.Controls.Add(this.btnSearch_PGC);
             this.tabPage2.Controls.Add(this.btnDelete_PGC);
             this.tabPage2.Controls.Add(this.btnUpdate_PGC);
             this.tabPage2.Controls.Add(this.btnInsert_PGC);
@@ -436,42 +430,11 @@
             this.tabPage2.Text = "Phiếu giao ca";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.cbSearchGc);
-            this.panel4.Controls.Add(this.txtSearchGc);
-            this.panel4.Controls.Add(this.btnSearch_PGC);
-            this.panel4.Location = new System.Drawing.Point(51, 142);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(601, 43);
-            this.panel4.TabIndex = 16;
-            // 
-            // cbSearchGc
-            // 
-            this.cbSearchGc.FormattingEnabled = true;
-            this.cbSearchGc.Items.AddRange(new object[] {
-            "Mã phiếu giao ca",
-            "Mã nhân viên",
-            "Mã quầy"});
-            this.cbSearchGc.Location = new System.Drawing.Point(36, 8);
-            this.cbSearchGc.Name = "cbSearchGc";
-            this.cbSearchGc.Size = new System.Drawing.Size(145, 28);
-            this.cbSearchGc.TabIndex = 12;
-            // 
-            // txtSearchGc
-            // 
-            this.txtSearchGc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchGc.Location = new System.Drawing.Point(210, 8);
-            this.txtSearchGc.Name = "txtSearchGc";
-            this.txtSearchGc.Size = new System.Drawing.Size(224, 26);
-            this.txtSearchGc.TabIndex = 11;
-            // 
             // btnSearch_PGC
             // 
-            this.btnSearch_PGC.Location = new System.Drawing.Point(468, 8);
+            this.btnSearch_PGC.Location = new System.Drawing.Point(670, 348);
             this.btnSearch_PGC.Name = "btnSearch_PGC";
-            this.btnSearch_PGC.Size = new System.Drawing.Size(98, 28);
+            this.btnSearch_PGC.Size = new System.Drawing.Size(75, 75);
             this.btnSearch_PGC.TabIndex = 1;
             this.btnSearch_PGC.Text = "Tìm kiếm";
             this.btnSearch_PGC.UseVisualStyleBackColor = true;
@@ -535,9 +498,9 @@
             // dgvPhieuGC
             // 
             this.dgvPhieuGC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPhieuGC.Location = new System.Drawing.Point(51, 191);
+            this.dgvPhieuGC.Location = new System.Drawing.Point(51, 142);
             this.dgvPhieuGC.Name = "dgvPhieuGC";
-            this.dgvPhieuGC.Size = new System.Drawing.Size(601, 232);
+            this.dgvPhieuGC.Size = new System.Drawing.Size(601, 281);
             this.dgvPhieuGC.TabIndex = 9;
             this.dgvPhieuGC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuGC_CellClick);
             // 
@@ -916,8 +879,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuGC)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -974,9 +935,6 @@
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.TextBox txtTaiKhoan;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox cbSearchGc;
-        private System.Windows.Forms.TextBox txtSearchGc;
         private System.Windows.Forms.Button btnSearch_PGC;
         private System.Windows.Forms.Button btnExit_PGC;
         private System.Windows.Forms.Button btnDelete_PGC;
