@@ -23,7 +23,6 @@ namespace bai6quanlysieuthi.Models
         public virtual DbSet<nhacungcap> nhacungcaps { get; set; }
         public virtual DbSet<nhanvien> nhanviens { get; set; }
         public virtual DbSet<phieugiaoca> phieugiaocas { get; set; }
-        public virtual DbSet<phieukiemke> phieukiemkes { get; set; }
         public virtual DbSet<phieuxuatkho> phieuxuatkhoes { get; set; }
         public virtual DbSet<quayhang> quayhangs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
