@@ -48,7 +48,14 @@ namespace bai6quanlysieuthi.Models
             this.ma = row["ma"].ToString();
             this.makhohang = row["makhohang"].ToString();
             this.ngayxuat = (DateTime)row["ngayxuat"];
-            this.tonggiatri = (float)Convert.ToDouble(row["tonggiatri"].ToString());
+            try
+            {
+                this.tonggiatri = (float)Convert.ToDouble(row["tonggiatri"].ToString());
+            }
+            catch
+            {
+
+            }
             this.maquay = row["maquay"].ToString();
             this.manhanvien = row["manhanvien"].ToString();
         }

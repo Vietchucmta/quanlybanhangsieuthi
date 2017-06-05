@@ -40,10 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnSearch_CTXK = new System.Windows.Forms.Button();
-            this.txtSearchCTPX = new System.Windows.Forms.TextBox();
-            this.cbSearchCTPX = new System.Windows.Forms.ComboBox();
             this.dgvCtXuatKho = new System.Windows.Forms.DataGridView();
             this.btnExit_CTXK = new System.Windows.Forms.Button();
             this.btnDelete_CTXK = new System.Windows.Forms.Button();
@@ -52,7 +49,6 @@
             this.btnView_CTXK = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCtXuatKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +56,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnSearch_CTXK);
             this.panel2.Controls.Add(this.cbMaMatHang);
             this.panel2.Controls.Add(this.cbMaXuat);
             this.panel2.Controls.Add(this.txtDonGia);
@@ -72,7 +69,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(64, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(756, 130);
+            this.panel2.Size = new System.Drawing.Size(756, 136);
             this.panel2.TabIndex = 40;
             // 
             // cbMaMatHang
@@ -162,110 +159,85 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "STT";
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnSearch_CTXK);
-            this.panel1.Controls.Add(this.txtSearchCTPX);
-            this.panel1.Controls.Add(this.cbSearchCTPX);
-            this.panel1.Location = new System.Drawing.Point(64, 148);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(571, 46);
-            this.panel1.TabIndex = 39;
-            // 
             // btnSearch_CTXK
             // 
+            this.btnSearch_CTXK.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSearch_CTXK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch_CTXK.Location = new System.Drawing.Point(404, 8);
+            this.btnSearch_CTXK.Location = new System.Drawing.Point(585, 82);
             this.btnSearch_CTXK.Name = "btnSearch_CTXK";
-            this.btnSearch_CTXK.Size = new System.Drawing.Size(111, 28);
+            this.btnSearch_CTXK.Size = new System.Drawing.Size(105, 35);
             this.btnSearch_CTXK.TabIndex = 11;
             this.btnSearch_CTXK.Text = "Tìm kiếm";
-            this.btnSearch_CTXK.UseVisualStyleBackColor = true;
+            this.btnSearch_CTXK.UseVisualStyleBackColor = false;
             this.btnSearch_CTXK.Click += new System.EventHandler(this.btnSearch_CTXK_Click);
-            // 
-            // txtSearchCTPX
-            // 
-            this.txtSearchCTPX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchCTPX.Location = new System.Drawing.Point(240, 8);
-            this.txtSearchCTPX.Name = "txtSearchCTPX";
-            this.txtSearchCTPX.Size = new System.Drawing.Size(101, 26);
-            this.txtSearchCTPX.TabIndex = 10;
-            // 
-            // cbSearchCTPX
-            // 
-            this.cbSearchCTPX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSearchCTPX.FormattingEnabled = true;
-            this.cbSearchCTPX.Items.AddRange(new object[] {
-            "Mã hóa đơn",
-            "Mã mặt hàng"});
-            this.cbSearchCTPX.Location = new System.Drawing.Point(50, 8);
-            this.cbSearchCTPX.Name = "cbSearchCTPX";
-            this.cbSearchCTPX.Size = new System.Drawing.Size(122, 28);
-            this.cbSearchCTPX.TabIndex = 10;
             // 
             // dgvCtXuatKho
             // 
             this.dgvCtXuatKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCtXuatKho.Location = new System.Drawing.Point(64, 200);
+            this.dgvCtXuatKho.Location = new System.Drawing.Point(64, 163);
             this.dgvCtXuatKho.Name = "dgvCtXuatKho";
-            this.dgvCtXuatKho.Size = new System.Drawing.Size(571, 233);
+            this.dgvCtXuatKho.Size = new System.Drawing.Size(596, 270);
             this.dgvCtXuatKho.TabIndex = 38;
             this.dgvCtXuatKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCtXuatKho_CellClick);
             // 
             // btnExit_CTXK
             // 
+            this.btnExit_CTXK.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnExit_CTXK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit_CTXK.Location = new System.Drawing.Point(707, 358);
+            this.btnExit_CTXK.Location = new System.Drawing.Point(735, 394);
             this.btnExit_CTXK.Name = "btnExit_CTXK";
-            this.btnExit_CTXK.Size = new System.Drawing.Size(75, 75);
+            this.btnExit_CTXK.Size = new System.Drawing.Size(85, 40);
             this.btnExit_CTXK.TabIndex = 37;
             this.btnExit_CTXK.Text = "Thoát";
-            this.btnExit_CTXK.UseVisualStyleBackColor = true;
+            this.btnExit_CTXK.UseVisualStyleBackColor = false;
             this.btnExit_CTXK.Click += new System.EventHandler(this.btnExit_CTXK_Click);
             // 
             // btnDelete_CTXK
             // 
+            this.btnDelete_CTXK.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnDelete_CTXK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete_CTXK.Location = new System.Drawing.Point(746, 269);
+            this.btnDelete_CTXK.Location = new System.Drawing.Point(735, 335);
             this.btnDelete_CTXK.Name = "btnDelete_CTXK";
-            this.btnDelete_CTXK.Size = new System.Drawing.Size(75, 75);
+            this.btnDelete_CTXK.Size = new System.Drawing.Size(85, 40);
             this.btnDelete_CTXK.TabIndex = 35;
             this.btnDelete_CTXK.Text = "Xóa";
-            this.btnDelete_CTXK.UseVisualStyleBackColor = true;
+            this.btnDelete_CTXK.UseVisualStyleBackColor = false;
             this.btnDelete_CTXK.Click += new System.EventHandler(this.btnDelete_CTXK_Click);
             // 
             // btnUpdate_CTXK
             // 
+            this.btnUpdate_CTXK.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnUpdate_CTXK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate_CTXK.Location = new System.Drawing.Point(655, 269);
+            this.btnUpdate_CTXK.Location = new System.Drawing.Point(735, 277);
             this.btnUpdate_CTXK.Name = "btnUpdate_CTXK";
-            this.btnUpdate_CTXK.Size = new System.Drawing.Size(75, 75);
+            this.btnUpdate_CTXK.Size = new System.Drawing.Size(85, 40);
             this.btnUpdate_CTXK.TabIndex = 34;
             this.btnUpdate_CTXK.Text = "Sửa";
-            this.btnUpdate_CTXK.UseVisualStyleBackColor = true;
+            this.btnUpdate_CTXK.UseVisualStyleBackColor = false;
             this.btnUpdate_CTXK.Click += new System.EventHandler(this.btnUpdate_CTXK_Click);
             // 
             // btnInsert_CTXK
             // 
+            this.btnInsert_CTXK.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnInsert_CTXK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsert_CTXK.Location = new System.Drawing.Point(746, 181);
+            this.btnInsert_CTXK.Location = new System.Drawing.Point(735, 163);
             this.btnInsert_CTXK.Name = "btnInsert_CTXK";
-            this.btnInsert_CTXK.Size = new System.Drawing.Size(75, 75);
+            this.btnInsert_CTXK.Size = new System.Drawing.Size(85, 40);
             this.btnInsert_CTXK.TabIndex = 33;
             this.btnInsert_CTXK.Text = "Thêm";
-            this.btnInsert_CTXK.UseVisualStyleBackColor = true;
+            this.btnInsert_CTXK.UseVisualStyleBackColor = false;
             this.btnInsert_CTXK.Click += new System.EventHandler(this.btnInsert_CTXK_Click);
             // 
             // btnView_CTXK
             // 
+            this.btnView_CTXK.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnView_CTXK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView_CTXK.Location = new System.Drawing.Point(655, 181);
+            this.btnView_CTXK.Location = new System.Drawing.Point(735, 220);
             this.btnView_CTXK.Name = "btnView_CTXK";
-            this.btnView_CTXK.Size = new System.Drawing.Size(75, 75);
+            this.btnView_CTXK.Size = new System.Drawing.Size(85, 40);
             this.btnView_CTXK.TabIndex = 32;
             this.btnView_CTXK.Text = "Xem";
-            this.btnView_CTXK.UseVisualStyleBackColor = true;
+            this.btnView_CTXK.UseVisualStyleBackColor = false;
             this.btnView_CTXK.Click += new System.EventHandler(this.btnView_CTXK_Click);
             // 
             // errorProvider1
@@ -276,9 +248,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(884, 461);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvCtXuatKho);
             this.Controls.Add(this.btnExit_CTXK);
             this.Controls.Add(this.btnDelete_CTXK);
@@ -289,8 +261,6 @@
             this.Text = "Chi tiết phiếu xuất";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCtXuatKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -310,10 +280,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSearch_CTXK;
-        private System.Windows.Forms.TextBox txtSearchCTPX;
-        private System.Windows.Forms.ComboBox cbSearchCTPX;
         private System.Windows.Forms.DataGridView dgvCtXuatKho;
         private System.Windows.Forms.Button btnExit_CTXK;
         private System.Windows.Forms.Button btnDelete_CTXK;

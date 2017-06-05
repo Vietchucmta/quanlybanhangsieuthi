@@ -39,7 +39,9 @@ namespace bai6quanlysieuthi.Models
         public string maquay { get; set; }
 
         public string manhacc { get; set; }
-        public mathang(string ma, string ten, string loaimathang, string donvitinh, string maquay,string nhacc)
+
+        public float gia { get; set; }
+        public mathang(string ma, string ten, string loaimathang, string donvitinh, string maquay,string nhacc,float gia)
         {
             this.ma = ma;
             this.ten = ten;
@@ -47,6 +49,7 @@ namespace bai6quanlysieuthi.Models
             this.donvitinh = donvitinh;
             this.maquay = maquay;
             this.manhacc = nhacc;
+            this.gia = gia;
         }
 
         public mathang(DataRow rows)
@@ -57,6 +60,11 @@ namespace bai6quanlysieuthi.Models
             this.donvitinh = rows["donvitinh"].ToString();
             this.maquay = rows["maquay"].ToString();
             this.manhacc = rows["manhacc"].ToString();
+            try
+            {
+                this.gia = (float)Convert.ToDouble(rows["gia"].ToString());
+            }
+            catch { }
         }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

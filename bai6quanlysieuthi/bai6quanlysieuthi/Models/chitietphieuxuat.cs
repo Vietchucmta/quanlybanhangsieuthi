@@ -37,8 +37,12 @@ namespace bai6quanlysieuthi.Models
             this.stt = (int)Convert.ToInt32(row["stt"].ToString());
             this.maxuat = row["maxuat"].ToString();
             this.mamathang = row["mamathang"].ToString();
-            this.soluong = (int)Convert.ToInt32(row["soluong"].ToString());
-            this.dongia = (float)Convert.ToDouble(row["dongia"].ToString());
+            try
+            {
+                this.soluong = (int)Convert.ToInt32(row["soluong"].ToString());
+                this.dongia = (float)Convert.ToDouble(row["dongia"].ToString());
+            }
+            catch { }
         }
 
     }

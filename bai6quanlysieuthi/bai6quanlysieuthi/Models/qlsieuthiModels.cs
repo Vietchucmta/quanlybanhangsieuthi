@@ -12,21 +12,17 @@ namespace bai6quanlysieuthi.Models
         {
         }
 
-        public virtual DbSet<chitiepphieunhap> chitiepphieunhaps { get; set; }
         public virtual DbSet<chitiethoadon> chitiethoadons { get; set; }
         public virtual DbSet<chitietphieugiaoca> chitietphieugiaocas { get; set; }
         public virtual DbSet<chitietphieuxuat> chitietphieuxuats { get; set; }
         public virtual DbSet<chucvu> chucvus { get; set; }
         public virtual DbSet<hoadon> hoadons { get; set; }
         public virtual DbSet<khachhang> khachhangs { get; set; }
-        public virtual DbSet<khachmuahang> khachmuahangs { get; set; }
         public virtual DbSet<khohang> khohangs { get; set; }
         public virtual DbSet<mathang> mathangs { get; set; }
         public virtual DbSet<nhacungcap> nhacungcaps { get; set; }
         public virtual DbSet<nhanvien> nhanviens { get; set; }
         public virtual DbSet<phieugiaoca> phieugiaocas { get; set; }
-        public virtual DbSet<phieukiemke> phieukiemkes { get; set; }
-        public virtual DbSet<phieunhapkho> phieunhapkhoes { get; set; }
         public virtual DbSet<phieuxuatkho> phieuxuatkhoes { get; set; }
         public virtual DbSet<quayhang> quayhangs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
