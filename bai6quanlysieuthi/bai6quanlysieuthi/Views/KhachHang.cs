@@ -96,6 +96,8 @@ namespace bai6quanlysieuthi.Views
                     errorProvider1.SetError(txtMakh, "Chua co ma khach hang");
                 if (txtTenkh.Text == "")
                     errorProvider1.SetError(txtTenkh, "Chưa có tên khách hàng");
+                MessageBox.Show("Phải có mã, tên khách hàng");
+                return;
             }
             else
             {
@@ -108,15 +110,11 @@ namespace bai6quanlysieuthi.Views
                 string diachi = txtDiachi.Text;
                 string sodienthoai = txtSodt.Text;
                 float uudai = (float)Convert.ToDouble(txtUudai.Text);
-                if (txtMakh.Text == "" || txtTenkh.Text == "")
+                if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    MessageBox.Show("Phải có mã, tên khách hàng");
-                    return;
-                }
-                if (KhachhangController.Instance.InsertKhachHang(ma, ten, diachi, sodienthoai, uudai))
-                {
-                    if(MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    if (KhachhangController.Instance.InsertKhachHang(ma, ten, diachi, sodienthoai, uudai))
                     {
+                    
                         MessageBox.Show("Thêm thành công!");
                         ViewKhachHang();
 
@@ -153,10 +151,10 @@ namespace bai6quanlysieuthi.Views
                 string ten = txtTenkh.Text;
                 string diachi = txtDiachi.Text;
                 string sodienthoai = txtSodt.Text;
-                float uudai = (float)Convert.ToDouble(txtUudai.Text);
-                if (KhachhangController.Instance.UpdateKhachHang(ma, ten, diachi, sodienthoai, uudai))
+                float uudai = (float)Convert.ToDouble(txtUudai.Text);  
+                if (MessageBox.Show("Bạn có muốn sửa hay không", "Sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    if (MessageBox.Show("Bạn có muốn sửa hay không", "Sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    if (KhachhangController.Instance.UpdateKhachHang(ma, ten, diachi, sodienthoai, uudai))
                     {
                         MessageBox.Show("Sửa thành công!");
                         ViewKhachHang();                        
@@ -181,11 +179,10 @@ namespace bai6quanlysieuthi.Views
         {
             errorProvider1.Clear();
             string ma = txtMakh.Text;
-            if (KhachhangController.Instance.DeleteKhachHang(ma))
+            if (MessageBox.Show("Bạn có muốn xóa hay không", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                if (MessageBox.Show("Bạn có muốn xóa hay không", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (KhachhangController.Instance.DeleteKhachHang(ma))
                 {
-
                     MessageBox.Show("Xóa thành công!");
                     ViewKhachHang();
                 }
@@ -272,6 +269,8 @@ namespace bai6quanlysieuthi.Views
                     errorProvider1.SetError(txtMaNhanVien, "Chưa có dữ liệu");
                 if (txtMaKhachHang.Text == "")
                     errorProvider1.SetError(txtMaKhachHang, "Chưa có dữ liệu");
+                MessageBox.Show("Phải điền thông tin");
+                return;
             }
             else
             {
@@ -283,14 +282,9 @@ namespace bai6quanlysieuthi.Views
                 string manv = txtMaNhanVien.Text;
                 DateTime ngaylap = (DateTime)Convert.ToDateTime(dtpNgayLap.Value.ToString("MM/dd/yyyy"));
                 string makh = txtMaKhachHang.Text;
-                if (txtMaHD.Text == "" || txtMaNhanVien.Text == ""||txtMaKhachHang.Text=="")
+                if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    MessageBox.Show("Phải điền thông tin");
-                    return;
-                }
-                if (HoaDonController.Instance.InsertHoaDon(ma,ngaylap,manv,makh))
-                {
-                    if (MessageBox.Show("Bạn có muốn thêm hay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    if (HoaDonController.Instance.InsertHoaDon(ma,ngaylap,manv,makh))
                     {
                         ViewHoaDon();
                         ChiTiet_HD f = new ChiTiet_HD();
@@ -322,6 +316,8 @@ namespace bai6quanlysieuthi.Views
                     errorProvider1.SetError(txtMaNhanVien, "Chưa có dữ liệu");
                 if (txtMaKhachHang.Text == "")
                     errorProvider1.SetError(txtMaKhachHang, "Chưa có dữ liệu");
+                MessageBox.Show("Phải điền thông tin");
+                return;
             }
             else
             {
@@ -333,15 +329,10 @@ namespace bai6quanlysieuthi.Views
                 string manv = txtMaNhanVien.Text;
                 DateTime ngaylap = (DateTime)Convert.ToDateTime(dtpNgayLap.Value.ToString("MM/dd/yyyy"));
                 string makh = txtMaKhachHang.Text;
-                if (txtMaHD.Text == "" || txtMaNhanVien.Text == "" || txtMaKhachHang.Text == "")
+                if (MessageBox.Show("Bạn có muốn sửahay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    MessageBox.Show("Phải điền thông tin");
-                    return;
-                }
-                if (HoaDonController.Instance.UpdateHoaDon(ma, ngaylap, manv, makh))
-                {
-                    if (MessageBox.Show("Bạn có muốn sửahay không", "Thêm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                    {
+                    if (HoaDonController.Instance.UpdateHoaDon(ma, ngaylap, manv, makh))
+                    {     
                         MessageBox.Show("Sửa thành công!");
                         ViewHoaDon();
                     }
@@ -364,11 +355,10 @@ namespace bai6quanlysieuthi.Views
         {
             errorProvider1.Clear();
             string ma = txtMaHD.Text;
-            if (HoaDonController.Instance.DeleteHoaDon(ma))
-            {   
-                if (MessageBox.Show("Bạn có muốn xóa hay không", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-
+            if (MessageBox.Show("Bạn có muốn xóa hay không", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                if (HoaDonController.Instance.DeleteHoaDon(ma))
+                {          
                     MessageBox.Show("Xóa thành công!");
                     ViewHoaDon();
                 }
@@ -393,7 +383,6 @@ namespace bai6quanlysieuthi.Views
                 if (txtSearchHD.Text != "")
                 {
                     dgvHoaDon.DataSource = HoaDonController.Instance.SearchHd(txtSearchHD.Text);
-
                 }
             }
             else if(cbbSeachHD.Text==@"Mã nhân viên")

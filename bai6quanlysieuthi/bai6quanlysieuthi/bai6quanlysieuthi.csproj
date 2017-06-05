@@ -109,7 +109,6 @@
     <Compile Include="Models\nhacungcap.cs" />
     <Compile Include="Models\nhanvien.cs" />
     <Compile Include="Models\phieugiaoca.cs" />
-    <Compile Include="Models\phieukiemke.cs" />
     <Compile Include="Models\phieuxuatkho.cs" />
     <Compile Include="Models\qlsieuthiModels.cs" />
     <Compile Include="Models\quayhang.cs" />
